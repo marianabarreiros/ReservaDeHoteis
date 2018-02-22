@@ -12,5 +12,5 @@ import interfaces.Client;
  * @author qt
  */
 public class Regular extends Client{
-//   
+    
 }
