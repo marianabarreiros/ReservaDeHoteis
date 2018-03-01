@@ -17,7 +17,6 @@ import java.util.Set;
  */
 public class FormatDates {
     private static FormatDates formatDatesInstance;
-//    private static LocalDate[] formatDates;
     private String datesAsString;
     private Set<String> dates = new LinkedHashSet<>();
     private Set<LocalDate> formatDates = new LinkedHashSet<>();
@@ -33,9 +32,15 @@ public class FormatDates {
     }
     
 //    CONSIDERE QUE NÃO OCORRERÁ ERROS VINDOS DO ARQUIVO...
-
+    public Set<LocalDate> formatToDates(String dates){
+       this.dates = this.ignoreDaysOfWeek(dates);
+       String month;
+       for(String date : this.dates){
+           month = date.substring(2, 5);
+       }
+    }
     
-    public Set<String> ignoreDaysOfWeek(String datesAsString){
+    private Set<String> ignoreDaysOfWeek(String datesAsString){
         this.dates = this.toSplitDates(datesAsString);
         Set<String> newDates = new LinkedHashSet<String>();
         for(String date : this.dates){
@@ -44,15 +49,14 @@ public class FormatDates {
         return newDates;           
     }
     
-    public Set<String> toSplitDates(String dates){
+    private Set<String> toSplitDates(String dates){
         datesAsString = this.getDates(dates);
         this.dates = new LinkedHashSet(Arrays.asList(datesAsString.split(",")));
         return this.dates; 
     }
-    public String getDates(String dates){
+    
+    private String getDates(String dates){
         this.datesAsString = dates.trim().replace(" ", "").substring(8, 52);
         return this.datesAsString;
-    }
-    
-    
+    }    
 }
