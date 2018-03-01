@@ -9,6 +9,7 @@ import clients.Regular;
 import clients.Reward;
 import hotel.Hotel;
 import interfaces.Client;
+import java.time.LocalDate;
 import java.util.Set;
 import singletons.FormatDates;
 
@@ -26,7 +27,7 @@ public class RunApp {
         Client Reward = new Reward();
         
         FormatDates fd = FormatDates.getInstance();
-        Set<String> fds = fd.ignoreDaysOfWeek("Regular:17Mar2009(Mon),18Mar2009(Tue),19Mar2009(Wed)");
+        Set<LocalDate> fds = fd.formatToDates("Regular:17Mar2009(Mon),18Mar2009(Tue),19Mar2009(Wed)");
         System.out.println(fds);
         
               
