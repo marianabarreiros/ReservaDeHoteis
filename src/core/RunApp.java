@@ -9,6 +9,8 @@ import clients.Regular;
 import clients.Reward;
 import hotel.Hotel;
 import interfaces.Client;
+import java.util.Set;
+import singletons.FormatDates;
 
 /**
  *
@@ -22,9 +24,14 @@ public class RunApp {
         
         Client Regular = new Regular();
         Client Reward = new Reward();
+        
+        FormatDates fd = FormatDates.getInstance();
+        Set<String> fds = fd.toSplitDates("Regular:17Mar2009(Mon),18Mar2009(Tue),19Mar2009(Wed)");
+        System.out.println(fds);
+        
               
-        System.out.println("A classificação e valores do Hotel Lakewood são, respectivamente "+ Lakewood.getClassification() + ", R$" + Lakewood.getValueDayOfWeekRegular()
-                           + ", R$" + Lakewood.getValueDayOfWeekendRegular()+ ", R$"+ Lakewood.getValueDayOfWeekReward()+ ", R$" + Lakewood.getValueDayOfWeekendReward()+ ".");
+//        System.out.println("A classificação e valores do Hotel Lakewood são, respectivamente "+ Lakewood.getClassification() + ", R$" + Lakewood.getValueDayOfWeekRegular()
+//                           + ", R$" + Lakewood.getValueDayOfWeekendRegular()+ ", R$"+ Lakewood.getValueDayOfWeekReward()+ ", R$" + Lakewood.getValueDayOfWeekendReward()+ ".");
         
     }
 }
