@@ -33,18 +33,24 @@ public class FormatDates {
     }
     
 //    CONSIDERE QUE NÃO OCORRERÁ ERROS VINDOS DO ARQUIVO...
-//    public String ignoreDaysOfWeek(String datesAsString){
-//        this.getDates(datesAsString);
-//        
-//        return; 
-//    }
+
+    
+    public Set<String> ignoreDaysOfWeek(String datesAsString){
+        this.dates = this.toSplitDates(datesAsString);
+        Set<String> newDates = new LinkedHashSet<String>();
+        for(String date : this.dates){
+           newDates.add(date.substring(0, 9).trim());
+        }
+        return newDates;           
+    }
+    
     public Set<String> toSplitDates(String dates){
         datesAsString = this.getDates(dates);
         this.dates = new LinkedHashSet(Arrays.asList(datesAsString.split(",")));
         return this.dates; 
     }
     public String getDates(String dates){
-        this.datesAsString = dates.trim().replace(" ", "").substring(8, 51);
+        this.datesAsString = dates.trim().replace(" ", "").substring(8, 52);
         return this.datesAsString;
     }
     

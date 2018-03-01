@@ -26,7 +26,7 @@ public class RunApp {
         Client Reward = new Reward();
         
         FormatDates fd = FormatDates.getInstance();
-        Set<String> fds = fd.toSplitDates("Regular:17Mar2009(Mon),18Mar2009(Tue),19Mar2009(Wed)");
+        Set<String> fds = fd.ignoreDaysOfWeek("Regular:17Mar2009(Mon),18Mar2009(Tue),19Mar2009(Wed)");
         System.out.println(fds);
         
               
