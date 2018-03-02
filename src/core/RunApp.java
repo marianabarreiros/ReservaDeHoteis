@@ -19,6 +19,7 @@ import singletons.FormatDates;
  */
 public class RunApp {
     public static void main(String[] Args){
+//        VERIFICAR SE POSSO COLOCAR UM BUILDER
         Hotel Lakewood = new Hotel('3', 110, 90, 80, 80);
         Hotel Bridgewood = new Hotel('4', 160, 60, 110, 50);
         Hotel Ridgewood = new Hotel('5', 220, 150, 100, 40);
