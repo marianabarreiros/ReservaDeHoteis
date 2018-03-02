@@ -7,6 +7,7 @@ package singletons;
 
 import static java.lang.reflect.Array.set;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -35,21 +36,21 @@ public class FormatDates {
 //    CONSIDERE QUE NÃO OCORRERÁ ERROS VINDOS DO ARQUIVO...
     public Set<LocalDate> formatToDates(String dates){
        this.dates = this.ignoreDaysOfWeek(dates);
-       String month;
+//       String month;
        for(String date : this.dates){
 //           MELHORAR CÓDIGO!!!
-           month = date.substring(2, 5);
-           int value = getMonth.getValue(month);
-           String valueString = String.valueOf(value);
-           CharSequence monthCS = month;
-           CharSequence valueCS = valueString;
-           
-           date.replace(monthCS, valueCS);
-           
-//           date.replace
-//           COLOQUE O VALOR RETORNADO NA STRING E DEPOIS ADICIONE NO LOCALDATE!!!
-           
+//           month = date.substring(2, 5);
+//           int value = getMonth.getValue(month);
+//           String valueString = String.valueOf(value);
+//           CharSequence monthCS = month;
+//           CharSequence valueCS = valueString;
+//           date.replace(monthCS, valueCS);
+//           formatDates.add(date);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dMMMuuuu");
+            LocalDate localDate = LocalDate.parse(date,formatter);
+            formatDates.add(localDate);    
        }
+       return formatDates;
     }
     
     private Set<String> ignoreDaysOfWeek(String datesAsString){
@@ -68,7 +69,7 @@ public class FormatDates {
     }
     
     private String getDates(String dates){
-        this.datesAsString = dates.trim().replace(" ", "").substring(8, 52);
+        this.datesAsString = dates.trim().replace(" ", "").substring(8, 52).toLowerCase();
         return this.datesAsString;
     }    
 }
