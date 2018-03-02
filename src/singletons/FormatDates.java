@@ -37,7 +37,16 @@ public class FormatDates {
        this.dates = this.ignoreDaysOfWeek(dates);
        String month;
        for(String date : this.dates){
+//           MELHORAR CÓDIGO!!!
            month = date.substring(2, 5);
+           int value = getMonth.getValue(month);
+           String valueString = String.valueOf(value);
+           CharSequence monthCS = month;
+           CharSequence valueCS = valueString;
+           
+           date.replace(monthCS, valueCS);
+           
+//           date.replace
 //           COLOQUE O VALOR RETORNADO NA STRING E DEPOIS ADICIONE NO LOCALDATE!!!
            
        }
