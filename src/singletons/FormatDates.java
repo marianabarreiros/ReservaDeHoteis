@@ -18,7 +18,6 @@ import java.util.Set;
  */
 public class FormatDates {
     private static FormatDates formatDatesInstance;
-    private ReturnMonth getMonth;
     private String datesAsString;
     private Set<String> dates = new LinkedHashSet<>();
     private Set<LocalDate> formatDates = new LinkedHashSet<>();
