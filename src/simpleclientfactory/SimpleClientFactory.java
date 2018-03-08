@@ -17,7 +17,7 @@ public class SimpleClientFactory {
     public Client creatClient(String enter){
         Client client = null;
         try {
-            switch(enter.substring(0, 6).toLowerCase()){
+            switch(enter.substring(0, 7).toLowerCase()){
                 case "regular":
                     client = new Regular();
                     break;
@@ -26,7 +26,7 @@ public class SimpleClientFactory {
                     break;
             }
         } 
-        catch (Exception e) {
+        catch (NullPointerException e) {
             System.out.println("Cliente " +client+ " não existe. Verifique seu arquivo!");
         }
 //        LANÇAR EXCEÇÃO PARA CLIENTE NÃO EXISTE

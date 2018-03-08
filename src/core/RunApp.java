@@ -26,7 +26,7 @@ public class RunApp {
         Hotel Ridgewood = new Hotel('5', 220, 150, 100, 40);
         
         SimpleClientFactory scf = new SimpleClientFactory();
-        Client client = scf.creatClient("Regular: 32Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
+        Client client = scf.creatClient("Regulam: 32Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
         System.out.println(client);
         
         /*Client Regular = new Regular();
