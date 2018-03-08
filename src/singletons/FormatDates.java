@@ -36,16 +36,7 @@ public class FormatDates {
 //    CONSIDERE QUE NÃO OCORRERÁ ERROS VINDOS DO ARQUIVO...
     public Set<LocalDate> formatToDates(String dates){
        this.dates = this.ignoreDaysOfWeek(dates);
-//       String month;
        for(String date : this.dates){
-//           MELHORAR CÓDIGO!!!
-//           month = date.substring(2, 5);
-//           int value = getMonth.getValue(month);
-//           String valueString = String.valueOf(value);
-//           CharSequence monthCS = month;
-//           CharSequence valueCS = valueString;
-//           date.replace(monthCS, valueCS);
-//           formatDates.add(date);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dMMMuuuu");
             try {
                LocalDate localDate = LocalDate.parse(date,formatter);
@@ -56,6 +47,7 @@ public class FormatDates {
                 break;
            }  
        }
+//       não enviar nada caso a data seja inválida
        return formatDates;
        
     }
