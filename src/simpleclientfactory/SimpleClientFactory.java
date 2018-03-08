@@ -14,9 +14,9 @@ import interfaces.Client;
  * @author Win-7
  */
 public class SimpleClientFactory {
-    public Client creatClient(StringBuilder enter){
+    public Client creatClient(String enter){
         Client client = null;
-        switch(enter.substring(0, 6).toLowerCase()){
+        switch(enter.substring(0, 7).toLowerCase()){
             case "regular":
                 client = new Regular();
                 break;

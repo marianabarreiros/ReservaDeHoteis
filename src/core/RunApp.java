@@ -11,6 +11,7 @@ import hotel.Hotel;
 import interfaces.Client;
 import java.time.LocalDate;
 import java.util.Set;
+import simpleclientfactory.SimpleClientFactory;
 import singletons.FormatDates;
 
 /**
@@ -24,12 +25,17 @@ public class RunApp {
         Hotel Bridgewood = new Hotel('4', 160, 60, 110, 50);
         Hotel Ridgewood = new Hotel('5', 220, 150, 100, 40);
         
-        Client Regular = new Regular();
+        SimpleClientFactory scf = new SimpleClientFactory();
+        Client client = scf.creatClient("Regular: 32Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
+        System.out.println(client);
+        
+        /*Client Regular = new Regular();
         Client Reward = new Reward();
         
         FormatDates fd = FormatDates.getInstance();
         Set<LocalDate> fds = fd.formatToDates("Regular: 32Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
-        System.out.println(fds);
+        System.out.println(fds);*/
+        
         
               
 //        System.out.println("A classificação e valores do Hotel Lakewood são, respectivamente "+ Lakewood.getClassification() + ", R$" + Lakewood.getValueDayOfWeekRegular()
