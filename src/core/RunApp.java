@@ -5,8 +5,8 @@
  */
 package core;
 
-import clients.Regular;
-import clients.Reward;
+import concreteclients.Regular;
+import concreteclients.Reward;
 import hotel.Hotel;
 import interfaces.Client;
 import java.time.LocalDate;

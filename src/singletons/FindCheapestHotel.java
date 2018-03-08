@@ -5,6 +5,8 @@
  */
 package singletons;
 
+import interfaces.Client;
+
 /**
  *
  * @author Win-7
@@ -12,7 +14,7 @@ package singletons;
 public class FindCheapestHotel {
     private DaysOfWeek day;
     private FormatDates formatDates;
-    private GetClient getClient;
+    private Client client;
     
     
 }

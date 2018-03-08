@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package singletons;
+package simpleclientfactory;
 
-import clients.Regular;
-import clients.Reward;
+import concreteclients.Regular;
+import concreteclients.Reward;
 import interfaces.Client;
 
 /**
  *
  * @author Win-7
  */
-public class GetClient {
-    public Client getClient(StringBuilder entrada){
+public class SimpleClientFactory {
+    public Client creatClient(StringBuilder enter){
         Client client = null;
-        switch(entrada.substring(0, 6).toLowerCase()){
+        switch(enter.substring(0, 6).toLowerCase()){
             case "regular":
                 client = new Regular();
                 break;
@@ -27,3 +27,4 @@ public class GetClient {
         return client;
     }
 }
+
