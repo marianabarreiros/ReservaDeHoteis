@@ -16,7 +16,8 @@ import interfaces.Client;
 public class SimpleClientFactory {
     public Client creatClient(String enter){
         Client client = null;
-        switch(enter.substring(0, 7).toLowerCase()){
+        try {
+            switch(enter.substring(0, 7).toLowerCase()){
             case "regular":
                 client = new Regular();
                 break;
@@ -24,7 +25,10 @@ public class SimpleClientFactory {
                 client = new Reward();
                 break;
         }
-        return client;
+        } catch (NullPointerException e) {
+            System.out.println("Cliente " +client+ " não existe. Verifique seu arquivo!");
+        }
+        return null;
     }
 }
 
