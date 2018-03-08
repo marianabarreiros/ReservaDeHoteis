@@ -18,16 +18,18 @@ public class SimpleClientFactory {
         Client client = null;
         try {
             switch(enter.substring(0, 7).toLowerCase()){
-            case "regular":
-                client = new Regular();
-                break;
-            case "reward":
-                client = new Reward();
-                break;
+                case "regular":
+                    client = new Regular();
+                    break;
+                case "reward":
+                    client = new Reward();
+                    break;
             }
-        } catch (NullPointerException e) {
+        } 
+        catch (NullPointerException e) {
             System.out.println("Cliente " +client+ " não existe. Verifique seu arquivo!");
         }
+//        LANÇAR EXCEÇÃO PARA CLIENTE NÃO EXISTE
         return client;
     }
 }

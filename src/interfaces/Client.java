@@ -10,6 +10,5 @@ package interfaces;
  * @author qt
  */
 public abstract class Client {
-    
-//    public abstract Client CreateClient();
+
 }
