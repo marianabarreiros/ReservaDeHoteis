@@ -21,9 +21,9 @@ import singletons.FormatDates;
 public class RunApp {
     public static void main(String[] Args){
 //        VERIFICAR SE POSSO COLOCAR UM BUILDER
-        Hotel Lakewood = new Hotel('3', 110, 90, 80, 80);
-        Hotel Bridgewood = new Hotel('4', 160, 60, 110, 50);
-        Hotel Ridgewood = new Hotel('5', 220, 150, 100, 40);
+        Hotel lakewood = new Hotel('3', 110, 90, 80, 80);
+        Hotel bridgewood = new Hotel('4', 160, 60, 110, 50);
+        Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
         
         SimpleClientFactory scf = new SimpleClientFactory();
         Client client = scf.creatClient("Regulam: 32Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
