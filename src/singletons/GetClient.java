@@ -16,11 +16,11 @@ import interfaces.Client;
 public class GetClient {
     public Client getClient(StringBuilder entrada){
         Client client = null;
-        switch(entrada.substring(0, 6)){
-            case "Regular":
+        switch(entrada.substring(0, 6).toLowerCase()){
+            case "regular":
                 client = new Regular();
                 break;
-            case "Reward":
+            case "reward":
                 client = new Reward();
                 break;
         }
