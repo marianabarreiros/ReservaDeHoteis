@@ -8,6 +8,7 @@ package singletons;
 import static java.lang.reflect.Array.set;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -46,10 +47,17 @@ public class FormatDates {
 //           date.replace(monthCS, valueCS);
 //           formatDates.add(date);
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dMMMuuuu");
-            LocalDate localDate = LocalDate.parse(date,formatter);
-            formatDates.add(localDate);    
+            try {
+               LocalDate localDate = LocalDate.parse(date,formatter);
+               formatDates.add(localDate);
+//               TENTAR COLOCAR A LINHA DO ARQUIVO E O ÍNDICE1!!!
+           } catch (DateTimeParseException e) {
+                System.out.println("A Data " + date + ", " + " não é uma data válida. Favor, corrigir!");
+                break;
+           }  
        }
        return formatDates;
+       
     }
     
     private Set<String> ignoreDaysOfWeek(String datesAsString){
