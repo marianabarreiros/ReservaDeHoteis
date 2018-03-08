@@ -24,11 +24,11 @@ public class SimpleClientFactory {
             case "reward":
                 client = new Reward();
                 break;
-        }
+            }
         } catch (NullPointerException e) {
             System.out.println("Cliente " +client+ " não existe. Verifique seu arquivo!");
         }
-        return null;
+        return client;
     }
 }
 
