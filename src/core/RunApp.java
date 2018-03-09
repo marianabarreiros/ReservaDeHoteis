@@ -11,6 +11,8 @@ import hotel.Hotel;
 import interfaces.Client;
 import java.time.LocalDate;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import simpleclientfactory.SimpleClientFactory;
 import singletons.FormatDates;
 
@@ -26,7 +28,12 @@ public class RunApp {
         Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
         
         SimpleClientFactory scf = new SimpleClientFactory();
-        Client client = scf.creatClient("Regulam: 32Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
+        Client client = null;
+        try {
+            client = scf.creatClient("Regulam: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
+        } catch (Exception ex) {
+            Logger.getLogger(RunApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.out.println(client);
         
         /*Client Regular = new Regular();

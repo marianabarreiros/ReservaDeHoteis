@@ -14,9 +14,9 @@ import interfaces.Client;
  * @author Win-7
  */
 public class SimpleClientFactory {
-    public Client creatClient(String enter){
+    public Client creatClient(String enter) throws Exception{
         Client client = null;
-        try {
+//        System.out.println(enter.substring(0, 7).toLowerCase());
             switch(enter.substring(0, 7).toLowerCase()){
                 case "regular":
                     client = new Regular();
@@ -24,11 +24,10 @@ public class SimpleClientFactory {
                 case "reward":
                     client = new Reward();
                     break;
+                default: 
+                    throw new Exception("Cliente não existe");
             }
-        } 
-        catch (NullPointerException e) {
-            System.out.println("Cliente " +client+ " não existe. Verifique seu arquivo!");
-        }
+        
 //        LANÇAR EXCEÇÃO PARA CLIENTE NÃO EXISTE
         return client;
     }
