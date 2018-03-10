@@ -27,21 +27,21 @@ public class RunApp {
         Hotel bridgewood = new Hotel('4', 160, 60, 110, 50);
         Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
         
-        SimpleClientFactory scf = new SimpleClientFactory();
-        Client client = null;
-        try {
-            client = scf.creatClient("Regulam: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
-        } catch (Exception ex) {
-            Logger.getLogger(RunApp.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println(client);
+//        SimpleClientFactory scf = new SimpleClientFactory();
+//        Client client = null;
+//        try {
+//            client = scf.creatClient("Regulam: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
+//        } catch (Exception ex) {
+//            Logger.getLogger(RunApp.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        System.out.println(client);
         
-        /*Client Regular = new Regular();
-        Client Reward = new Reward();
+//        Client Regular = new Regular();
+//        Client Reward = new Reward();
         
         FormatDates fd = FormatDates.getInstance();
-        Set<LocalDate> fds = fd.formatToDates("Regular: 32Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
-        System.out.println(fds);*/
+        Set<LocalDate> fds = fd.formatToDates("Regular: 20Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
+        System.out.println(fds);
         
         
               

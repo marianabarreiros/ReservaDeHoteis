@@ -36,7 +36,8 @@ public class FormatDates {
 //    CONSIDERE QUE NÃO OCORRERÁ ERROS VINDOS DO ARQUIVO...
     public Set<LocalDate> formatToDates(String dates){
        this.dates = this.ignoreDaysOfWeek(dates);
-       for(String date : this.dates){
+//       for(String date : this.dates){
+       this.dates.forEach(date ->{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dMMMuuuu");
             try {
                LocalDate localDate = LocalDate.parse(date,formatter);
@@ -44,9 +45,9 @@ public class FormatDates {
 //               TENTAR COLOCAR A LINHA DO ARQUIVO E O ÍNDICE1!!!
            } catch (DateTimeParseException e) {
                 System.out.println("A Data " + date + ", " + " não é uma data válida. Favor, corrigir!");
-                break;
+//                break;
            }  
-       }
+       });
 //       não enviar nada caso a data seja inválida
        return formatDates;
        
@@ -55,9 +56,10 @@ public class FormatDates {
     private Set<String> ignoreDaysOfWeek(String datesAsString){
         this.dates = this.toSplitDates(datesAsString);
         Set<String> newDates = new LinkedHashSet<String>();
-        for(String date : this.dates){
+//        for(String date : this.dates){
+        this.dates.forEach(date ->{;
            newDates.add(date.substring(0, 9).trim());
-        }
+        });
         return newDates;           
     }
     
