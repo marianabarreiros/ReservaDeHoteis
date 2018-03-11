@@ -5,6 +5,7 @@
  */
 package singletons;
 
+import static java.lang.System.exit;
 import static java.lang.reflect.Array.set;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -45,7 +46,7 @@ public class FormatDates {
 //               TENTAR COLOCAR A LINHA DO ARQUIVO E O ÍNDICE1!!!
            } catch (DateTimeParseException e) {
                 System.out.println("A Data " + date + ", " + " não é uma data válida. Favor, corrigir!");
-//                break;
+                exit(0);
            }  
        });
 //       não enviar nada caso a data seja inválida
