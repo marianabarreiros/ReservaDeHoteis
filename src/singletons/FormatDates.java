@@ -37,7 +37,6 @@ public class FormatDates {
 //    CONSIDERE QUE NÃO OCORRERÁ ERROS VINDOS DO ARQUIVO...
     public Set<LocalDate> formatToDates(String dates){
        this.dates = this.ignoreDaysOfWeek(dates);
-//       for(String date : this.dates){
        this.dates.forEach(date ->{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dMMMuuuu");
             try {
@@ -49,7 +48,6 @@ public class FormatDates {
                 exit(0);
            }  
        });
-//       não enviar nada caso a data seja inválida
        return formatDates;
        
     }
@@ -57,7 +55,6 @@ public class FormatDates {
     private Set<String> ignoreDaysOfWeek(String datesAsString){
         this.dates = this.toSplitDates(datesAsString);
         Set<String> newDates = new LinkedHashSet<String>();
-//        for(String date : this.dates){
         this.dates.forEach(date ->{;
            newDates.add(date.substring(0, 9).trim());
         });
