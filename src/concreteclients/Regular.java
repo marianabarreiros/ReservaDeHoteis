@@ -5,7 +5,7 @@
  */
 package concreteclients;
 
-import interfaces.Client;
+import core.Client;
 
 /**
  *

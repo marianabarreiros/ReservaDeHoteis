@@ -5,7 +5,7 @@
  */
 package singletons;
 
-import interfaces.Client;
+import core.Client;
 
 /**
  *

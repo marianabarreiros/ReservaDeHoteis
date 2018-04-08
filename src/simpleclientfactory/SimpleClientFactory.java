@@ -7,7 +7,7 @@ package simpleclientfactory;
 
 import concreteclients.Regular;
 import concreteclients.Reward;
-import interfaces.Client;
+import core.Client;
 
 /**
  *

@@ -8,7 +8,6 @@ package core;
 import concreteclients.Regular;
 import concreteclients.Reward;
 import hotel.Hotel;
-import interfaces.Client;
 import java.time.LocalDate;
 import java.util.Set;
 import java.util.logging.Level;
@@ -23,6 +22,7 @@ import singletons.FormatDates;
 public class RunApp {
     public static void main(String[] Args){
 //        VERIFICAR SE POSSO COLOCAR UM BUILDER
+//        VERIFICAR SE É POSSÍVEL FAZER UM FIFUNCTION
         Hotel lakewood = new Hotel('3', 110, 90, 80, 80);
         Hotel bridgewood = new Hotel('4', 160, 60, 110, 50);
         Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
@@ -36,12 +36,15 @@ public class RunApp {
 //        }
 //        System.out.println(client);
         
-//        Client Regular = new Regular();
-//        Client Reward = new Reward();
+//        Client regular = new Regular();
+//        Client reward = new Reward();
         
         FormatDates fd = FormatDates.getInstance();
-        Set<LocalDate> fds = fd.formatToDates("Regular: 32Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
+        Set<LocalDate> fds = fd.formatToDates("Regular: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
         System.out.println(fds);
+//        fds.forEach(System.out::println);
+        
+        
         
         
               
