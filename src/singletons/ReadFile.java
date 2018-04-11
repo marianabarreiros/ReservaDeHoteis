@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package files;
+package singletons;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -15,11 +15,11 @@ import java.util.stream.Stream;
  * @author Win-7
  */
 public class ReadFile {
+//    TRANSFORMAR EM UM SINGLETON!!!!
     public String readFile(){
         StringBuilder str = new StringBuilder();
 //        String fileName = "C:\\Users\\Win-7\\Desktop\\HotelReservation.txt";
         String fileName = File.separator + "Users" + File.separator + "Win-7" + File.separator + "Desktop" + File.separator + "HotelReservation.txt";
-        String file;
         try (Stream<String> stream = Files.lines(Paths.get(fileName))){
             stream.forEach(s -> str.append(s + "\r\n"));
         } catch (Exception e) {

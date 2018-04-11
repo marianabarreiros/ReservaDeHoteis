@@ -7,7 +7,7 @@ package core;
 
 import concreteclients.Regular;
 import concreteclients.Reward;
-import files.ReadFile;
+import singletons.ReadFile;
 import hotel.Hotel;
 import java.time.LocalDate;
 import java.util.Set;
