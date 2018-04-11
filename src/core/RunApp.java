@@ -43,7 +43,7 @@ public class RunApp {
         FormatDates fd = FormatDates.getInstance();
         Set<LocalDate> fds = fd.formatToDates("Regular: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
         System.out.println(fds);
-        ReadFile rf = new ReadFile();
+        ReadFile rf = ReadFile.getInstance();
         System.out.println(rf.readFile());
 //        fds.forEach(System.out::println);
         
