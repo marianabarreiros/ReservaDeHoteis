@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import simpleclientfactory.SimpleClientFactory;
 import singletons.FormatDates;
+import testfile.TestPatternFile;
 
 /**
  *
@@ -40,11 +41,19 @@ public class RunApp {
 //        Client regular = new Regular();
 //        Client reward = new Reward();
         
+//        FORMATAÇÃO DAS DATAS...
         FormatDates fd = FormatDates.getInstance();
         Set<LocalDate> fds = fd.formatToDates("Regular: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
         System.out.println(fds);
+//        LEITURA DO ARQUIVO...
         ReadFile rf = ReadFile.getInstance();
+//        VALIDANDO O PADRÃO DO ARQUIVO...
+//        TestPatternFile patternFile = new TestPatternFile(rf.readFile());
+//        patternFile.validatePatternsFile();
+        
         System.out.println(rf.readFile());
+        
+        
 //        fds.forEach(System.out::println);
         
         
