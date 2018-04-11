@@ -7,6 +7,7 @@ package core;
 
 import concreteclients.Regular;
 import concreteclients.Reward;
+import files.ReadFile;
 import hotel.Hotel;
 import java.time.LocalDate;
 import java.util.Set;
@@ -42,6 +43,8 @@ public class RunApp {
         FormatDates fd = FormatDates.getInstance();
         Set<LocalDate> fds = fd.formatToDates("Regular: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
         System.out.println(fds);
+        ReadFile rf = new ReadFile();
+        System.out.println(rf.readFile());
 //        fds.forEach(System.out::println);
         
         
