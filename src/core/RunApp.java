@@ -23,6 +23,7 @@ import testfile.TestPatternFile;
  */
 public class RunApp {
     public static void main(String[] Args){
+//        CRIAÇÃO DOS HOTEIS
         Hotel lakewood = new Hotel('3', 110, 90, 80, 80);
         Hotel bridgewood = new Hotel('4', 160, 60, 110, 50);
         Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
@@ -45,18 +46,9 @@ public class RunApp {
 //        System.out.println(fds);
 //        LEITURA DO ARQUIVO...
         ReadFile rf = ReadFile.getInstance();
-        String file = rf.readFile();
-        System.out.println(file);
 //        VALIDANDO O PADRÃO DO ARQUIVO...
-//        TestPatternFile patternFile = new TestPatternFile(file);
-//        patternFile.validatePatternsFile();
-        
-//        fds.forEach(System.out::println);
-        
-        
-        
-        
-              
+        TestPatternFile patternFile = new TestPatternFile(rf.readFile());
+        patternFile.validatePatternsFile();          
 //        System.out.println("A classificação e valores do Hotel Lakewood são, respectivamente "+ Lakewood.getClassification() + ", R$" + Lakewood.getValueDayOfWeekRegular()
 //                           + ", R$" + Lakewood.getValueDayOfWeekendRegular()+ ", R$"+ Lakewood.getValueDayOfWeekReward()+ ", R$" + Lakewood.getValueDayOfWeekendReward()+ ".");
         
