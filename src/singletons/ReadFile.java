@@ -6,6 +6,7 @@
 package singletons;
 
 import java.io.File;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
@@ -28,12 +29,11 @@ public class ReadFile {
     
     public String readFile(){
         StringBuilder str = new StringBuilder();
-        String fileName = File.separator + "Users" + File.separator + "Win-7" + File.separator + "Desktop" + File.separator + "HotelReservation.txt";
-        try (Stream<String> stream = Files.lines(Paths.get(fileName))){
-            stream.forEach(s -> str.append(s + "\r\n"));
+        final String file = "HotelReservation" + File.separator + "HotelReservation.txt"; 
+        try (Stream<String> stream = Files.lines(Paths.get(getClass().getClassLoader().getResource(file).toURI()))){
+            stream.forEach(System.out::println);
         } catch (Exception e) {
-            System.out.println("Erro na tentiva de leitura do arquivo. Verifique se o caminho está correto: " + e.getMessage());
-                    
+            System.out.println("Erro na tentiva de leitura do arquivo. Verifique se o caminho está correto: " + e.getMessage());               
         }
         return str.toString();
     }
