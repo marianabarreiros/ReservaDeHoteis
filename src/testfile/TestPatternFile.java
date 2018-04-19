@@ -15,10 +15,10 @@ import singletons.ReadFile;
  */
 public class TestPatternFile {
 
-    ReadFile rf;
-    String outra = "";
-    String regex = "(((^[a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})"; // https://regexr.com/
-    String string;
+    private ReadFile rf;
+    private String outra = "";
+    private String regex = "(((^[a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})"; // https://regexr.com/
+    private String string;
 
     public TestPatternFile(String string) {
         this.string = string;
@@ -34,6 +34,7 @@ public class TestPatternFile {
                 outra += (mat.group());
             }
         } else {
+//            PEGUE A LINHA DO ARQUIVO ONDE FOI ENCONTRADO O ERRO
             System.out.println("Arquivo inválido! Exemplo de formato aceito: 'Rewards:99Aaa999(aaaa),99Aaa999(aaaa),99Aaa999(aaaa),99Aaa999(aaaa),99Aaa999(aaaa)'");
             System.exit(0);
         }
@@ -45,6 +46,7 @@ public class TestPatternFile {
         if (string.matches("^[a-zA-Z].*") && string.matches(".*[)]$")) {
             return true;
         } else {
+//            PEGUE A LINHA DO ARQUIVO ONDE FOI ENCONTRADO O ERRO
             System.out.println("A string não começa com letra e termina com o caracter ´)´. Favor corrigir!");
             System.exit(0);
             return false;

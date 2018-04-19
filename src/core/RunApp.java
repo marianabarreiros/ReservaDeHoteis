@@ -43,11 +43,5 @@ public class RunApp {
 //        System.out.println(client);
 //        Client regular = new Regular();
 //        Client reward = new Reward();
-
-        
-        
-//        System.out.println("A classificação e valores do Hotel Lakewood são, respectivamente "+ Lakewood.getClassification() + ", R$" + Lakewood.getValueDayOfWeekRegular()
-//                           + ", R$" + Lakewood.getValueDayOfWeekendRegular()+ ", R$"+ Lakewood.getValueDayOfWeekReward()+ ", R$" + Lakewood.getValueDayOfWeekendReward()+ ".");
-
     }
 }
