@@ -5,15 +5,10 @@
  */
 package core;
 
-import concreteclients.Regular;
-import concreteclients.Reward;
 import singletons.ReadFile;
 import hotel.Hotel;
 import java.time.LocalDate;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import simpleclientfactory.SimpleClientFactory;
 import singletons.FormatDates;
 import testfile.TestPatternFile;
 
@@ -22,12 +17,13 @@ import testfile.TestPatternFile;
  * @author qt
  */
 public class RunApp {
-    public static void main(String[] Args){
+
+    public static void main(String[] Args) {
 //        CRIAÇÃO DOS HOTEIS
         Hotel lakewood = new Hotel('3', 110, 90, 80, 80);
         Hotel bridgewood = new Hotel('4', 160, 60, 110, 50);
         Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
-        
+
 //        SimpleClientFactory scf = new SimpleClientFactory();
 //        Client client = null;
 //        try {
@@ -36,21 +32,20 @@ public class RunApp {
 //            Logger.getLogger(RunApp.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //        System.out.println(client);
-        
 //        Client regular = new Regular();
 //        Client reward = new Reward();
-        
 //        FORMATAÇÃO DAS DATAS...
+        ReadFile rf = ReadFile.getInstance();
+        TestPatternFile patternFile = new TestPatternFile(rf.readFile());
+        
         FormatDates fd = FormatDates.getInstance();
-        Set<LocalDate> fds = fd.formatToDates("Regular: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
+        Set<LocalDate> fds = fd.formatToDates(patternFile.validatePatternsFile());
 //        System.out.println(fds);
 //        LEITURA DO ARQUIVO...
-        ReadFile rf = ReadFile.getInstance();
 //        VALIDANDO O PADRÃO DO ARQUIVO...
-        TestPatternFile patternFile = new TestPatternFile(rf.readFile());
-        patternFile.validatePatternsFile();          
+        
 //        System.out.println("A classificação e valores do Hotel Lakewood são, respectivamente "+ Lakewood.getClassification() + ", R$" + Lakewood.getValueDayOfWeekRegular()
 //                           + ", R$" + Lakewood.getValueDayOfWeekendRegular()+ ", R$"+ Lakewood.getValueDayOfWeekReward()+ ", R$" + Lakewood.getValueDayOfWeekendReward()+ ".");
-        
+
     }
 }
