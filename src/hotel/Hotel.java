@@ -21,29 +21,12 @@ public class Hotel {
         this.valueDayOfWeekRegular = valueDayOfWeekRegular;
         this.valueDayOfWeekendRegular = valueDayOfWeekendRegular;
         this.valueDayOfWeekReward = valueDayOfWeekReward;
-        this.valueDayOfWeekendReward = valueDayOfWeekendReward;
-    
-    }
-
-    public char getClassification() {
-        return classification;
-    }
-
-    public double getValueDayOfWeekRegular() {
-        return valueDayOfWeekRegular;
-    }
-
-    public double getValueDayOfWeekendRegular() {
-        return valueDayOfWeekendRegular;
-    }
-
-    public double getValueDayOfWeekReward() {
-        return valueDayOfWeekReward;
-    }
-
-    public double getValueDayOfWeekendReward() {
-        return valueDayOfWeekendReward;
+        this.valueDayOfWeekendReward = valueDayOfWeekendReward;    
     }
     
-    
+    public char getClassification() {return classification;}
+    public double getValueDayOfWeekRegular() {return valueDayOfWeekRegular;}
+    public double getValueDayOfWeekendRegular() {return valueDayOfWeekendRegular;}
+    public double getValueDayOfWeekReward() {return valueDayOfWeekReward;}
+    public double getValueDayOfWeekendReward() {return valueDayOfWeekendReward;}  
 }
