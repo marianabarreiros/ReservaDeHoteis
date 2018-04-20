@@ -16,8 +16,7 @@ public class DaysOfWeek {
     private static DaysOfWeek daysOfWeekInstance;
     private DayOfWeek day;
     
-    private DaysOfWeek(){
-    }
+    private DaysOfWeek(){}
     
     public static DaysOfWeek getInstance(){
         if(daysOfWeekInstance == null)
@@ -25,7 +24,5 @@ public class DaysOfWeek {
         return daysOfWeekInstance;
     }
     
-    public int getValue(LocalDate date){
-        return date.getDayOfWeek().getValue();
-    }   
+    public int getValue(LocalDate date) {return date.getDayOfWeek().getValue();}   
 }

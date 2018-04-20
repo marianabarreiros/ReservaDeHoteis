@@ -53,7 +53,5 @@ public class TestPatternFile {
         }
     }
 
-    private String removeSpaces(String string) {
-        return string.replace(" ", "").trim();
-    }
+    private String removeSpaces(String string) {return string.replace(" ", "").trim();}
 }
