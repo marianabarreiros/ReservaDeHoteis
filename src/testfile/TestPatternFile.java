@@ -17,7 +17,7 @@ public class TestPatternFile {
 
     private ReadFile rf;
     private String outra = "";
-    private String regex = "(((^[a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})"; // https://regexr.com/
+    private String regex = "((([a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})"; // https://regexr.com/
     private String string;
 
     public TestPatternFile(String string) {
@@ -25,9 +25,8 @@ public class TestPatternFile {
     }
 
     public String validatePatternsFile() {
-        this.beginsAndEnd();
         Pattern padrao = Pattern.compile(regex);
-        Matcher mat = padrao.matcher(string);
+        Matcher mat = padrao.matcher(this.removeSpaces(string));
         if (mat.matches()) {
            mat.reset();
             while (mat.find()) {
@@ -39,18 +38,6 @@ public class TestPatternFile {
             System.exit(0);
         }
         return outra;
-    }
-
-    private boolean beginsAndEnd() {
-        string = this.removeSpaces(string);
-        if (string.matches("^[a-zA-Z].*") && string.matches(".*[)]$")) {
-            return true;
-        } else {
-//            PEGUE A LINHA DO ARQUIVO ONDE FOI ENCONTRADO O ERRO
-            System.out.println("A string não começa com letra e termina com o caracter ´)´. Favor corrigir!");
-            System.exit(0);
-            return false;
-        }
     }
 
     private String removeSpaces(String string) {return string.replace(" ", "").trim();}
