@@ -31,7 +31,7 @@ public class ReadFile {
         StringBuilder str = new StringBuilder();
         final String FILE = "HotelReservation" + File.separator + "HotelReservation.txt"; 
         try (Stream<String> stream = Files.lines(Paths.get(getClass().getClassLoader().getResource(FILE).toURI()))){
-            stream.forEach(s -> str.append(s + "\r\n"));
+            stream.forEach(s -> str.append(s + "\n"));
         } catch (Exception e) {
             System.out.println("Erro na tentiva de leitura do arquivo. Verifique se o caminho está correto: " + e.getMessage());               
         }
