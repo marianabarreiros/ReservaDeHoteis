@@ -8,8 +8,9 @@ package singletons;
 import core.Client;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.Set;
+import simpleclientfactory.SimpleClientFactory;
 
 /**
  *
@@ -17,7 +18,8 @@ import java.util.Set;
  */
 public class ValidateFileLines {
     private static ValidateFileLines validateFileLinesInstance;
-    private Map dictionary = new LinkedHashMap();
+    SimpleClientFactory simpleClientFactory = new SimpleClientFactory();
+    private Map<Client, LinkedHashSet<LocalDate>> mapClientsEndDates = new LinkedHashMap();
 
     private ValidateFileLines() {}
     
@@ -34,9 +36,12 @@ public class ValidateFileLines {
             String client = stringSplit[i].substring(0, endIndex);
             String dates = stringSplit[i].substring(endIndex+1);
 //            VALIDE O CLIENTE E AS DATAS. SE OS 2 FOREM VÁLIDOS INCLUA NO DICIONÁRIO E ENVIE O MAP.
-//            if()
-            
+            if(simpleClientFactory.creatClient(client))
+                mapClientsEndDates.put(simpleClientFactory.getClient(), );                              
+            else
+                continue;
         }
-        return string;
+    return string;
+            
     }
 }

@@ -29,14 +29,14 @@ public class RunApp {
         vfl.validateFileLines(patternFile.validatePatternsFile());
         
 //        FORMATAÇÃO DAS DATAS
-        FormatDates fd = FormatDates.getInstance();
-        Set<LocalDate> fds = fd.formatToDates(patternFile.validatePatternsFile());
+//        FormatDates fd = FormatDates.getInstance();
+//        Set<LocalDate> fds = fd.formatToDates(patternFile.validatePatternsFile());
 //        System.out.println(fds);
         
 //        CRIAÇÃO DOS HOTEIS
-        Hotel lakewood = new Hotel('3', 110, 90, 80, 80);
-        Hotel bridgewood = new Hotel('4', 160, 60, 110, 50);
-        Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
+//        Hotel lakewood = new Hotel('3', 110, 90, 80, 80);
+//        Hotel bridgewood = new Hotel('4', 160, 60, 110, 50);
+//        Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
 
 //        SimpleClientFactory scf = new SimpleClientFactory();
 //        Client client = null;

@@ -16,7 +16,7 @@ import singletons.ReadFile;
  */
 public class ValidatePatternFile {
     private String outra = "";
-    private String regex = "((([a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})([\\n]?)"; // https://regexr.com/
+    private String regex = "((([a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})\\n?"; // https://regexr.com/
     private String string;
 
     public ValidatePatternFile(String string) {
@@ -42,7 +42,7 @@ public class ValidatePatternFile {
 
     private String removeSpaces(String string) {return string.replace(" ", "").trim();}
 
-    private String[] toSplit(String string) {
+    public String[] toSplit(String string) {
         String[] stringSplit = null;
         stringSplit = string.split("\n");
         return stringSplit;

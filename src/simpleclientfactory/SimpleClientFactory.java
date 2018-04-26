@@ -14,20 +14,23 @@ import core.Client;
  * @author Win-7
  */
 public class SimpleClientFactory {
-    public Client creatClient(String client) throws Exception{
-        Client client1 = null;
-        switch(client){
-                case "regular":
-                    client1 = new Regular();
-                    break;
-                case "reward":
-                    client1 = new Reward(); 
-                    break;
-                default: 
-                    throw new Exception("Cliente não existe");
-        
-//        LANÇAR EXCEÇÃO PARA CLIENTE NÃO EXISTE
-        return client1;
+    private Client client = null;
+
+    public Client getClient() {
+        return client;
+    }
+    
+    public boolean creatClient(String client){
+        switch(client.toLowerCase()){
+            case "regular":
+                this.client = new Regular();
+                return true;
+            case "rewards":
+                this.client = new Reward(); 
+                return true;
+            default: 
+                return false;
+        }       
     }
 }
 
