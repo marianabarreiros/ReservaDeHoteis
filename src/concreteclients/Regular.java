@@ -11,6 +11,6 @@ import core.Client;
  *
  * @author qt
  */
-public class Regular extends Client{
-    
+public class Regular extends Client{   
+
 }

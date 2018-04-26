@@ -5,8 +5,11 @@
  */
 package singletons;
 
+import core.Client;
+import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  *
@@ -18,10 +21,20 @@ public class ValidateFileLines {
 
     private ValidateFileLines() {}
     
-    public ValidateFileLines getInstance(){
+    public static ValidateFileLines getInstance(){
         if(validateFileLinesInstance == null)
             validateFileLinesInstance = new ValidateFileLines();
         return validateFileLinesInstance;
     }
     
+    public String validateFileLines(String string){
+        String[] stringSplit = string.split("\n");
+        for(int i = 0; i< stringSplit.length; i++){
+            int endIndex = stringSplit[i].indexOf(":");
+            String dates = stringSplit[i].substring(endIndex+1);
+            String client = stringSplit[i].substring(0, endIndex);
+            
+        }
+        return string;
+    }
 }

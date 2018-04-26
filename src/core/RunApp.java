@@ -10,6 +10,7 @@ import hotel.Hotel;
 import java.time.LocalDate;
 import java.util.Set;
 import singletons.FormatDates;
+import singletons.ValidateFileLines;
 import testfile.TestPatternFile;
 
 /**
@@ -22,6 +23,10 @@ public class RunApp {
 //        LEITURA DO ARQUIVO
         ReadFile rf = ReadFile.getInstance();
         TestPatternFile patternFile = new TestPatternFile(rf.readFile());
+        
+//        VALIDAR AS LINHAS E COLOCAR EM UM MAP
+        ValidateFileLines vfl = ValidateFileLines.getInstance();
+        vfl.validateFileLines(patternFile.validatePatternsFile());
         
 //        FORMATAÇÃO DAS DATAS
         FormatDates fd = FormatDates.getInstance();
