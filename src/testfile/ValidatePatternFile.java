@@ -14,12 +14,12 @@ import singletons.ReadFile;
  *
  * @author Win-7
  */
-public class TestPatternFile {
+public class ValidatePatternFile {
     private String outra = "";
     private String regex = "((([a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})([\\n]?)"; // https://regexr.com/
     private String string;
 
-    public TestPatternFile(String string) {
+    public ValidatePatternFile(String string) {
         this.string = string;
     }
 

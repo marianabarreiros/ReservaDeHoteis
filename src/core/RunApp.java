@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.util.Set;
 import singletons.FormatDates;
 import singletons.ValidateFileLines;
-import testfile.TestPatternFile;
+import testfile.ValidatePatternFile;
 
 /**
  *
@@ -22,7 +22,7 @@ public class RunApp {
     public static void main(String[] Args) {
 //        LEITURA DO ARQUIVO
         ReadFile rf = ReadFile.getInstance();
-        TestPatternFile patternFile = new TestPatternFile(rf.readFile());
+        ValidatePatternFile patternFile = new ValidatePatternFile(rf.readFile());
         
 //        VALIDAR AS LINHAS E COLOCAR EM UM MAP
         ValidateFileLines vfl = ValidateFileLines.getInstance();
