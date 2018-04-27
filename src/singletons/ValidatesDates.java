@@ -32,8 +32,7 @@ public class ValidatesDates {
             formatDatesInstance =  new ValidatesDates();
         return formatDatesInstance;
     }
-    
-//    CONSIDERE QUE NÃO OCORRERÁ ERROS VINDOS DO ARQUIVO...
+
     public Set<LocalDate> ValidatesDates(String dates){
        this.dates = this.ignoreDaysOfWeek(dates);
        this.dates.forEach(date ->{
