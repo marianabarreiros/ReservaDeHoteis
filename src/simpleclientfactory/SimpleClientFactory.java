@@ -6,7 +6,7 @@
 package simpleclientfactory;
 
 import concreteclients.Regular;
-import concreteclients.Reward;
+import concreteclients.Rewards;
 import core.Client;
 
 /**
@@ -24,7 +24,7 @@ public class SimpleClientFactory {
                 this.client = new Regular();
                 return true;
             case "rewards":
-                this.client = new Reward(); 
+                this.client = new Rewards(); 
                 return true;
             default: 
                 return false;

@@ -13,4 +13,7 @@ import core.Client;
  */
 public class Regular extends Client{   
 
+    @Override
+    public String getTypeClient() {return "Regular";}
+
 }

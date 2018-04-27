@@ -9,7 +9,7 @@ import singletons.ReadFile;
 import hotel.Hotel;
 import java.time.LocalDate;
 import java.util.Set;
-import singletons.FormatDates;
+import singletons.ValidatesDates;
 import singletons.ValidateFileLines;
 import testfile.ValidatePatternFile;
 
@@ -29,7 +29,7 @@ public class RunApp {
         vfl.validateFileLines(patternFile.validatePatternsFile());
         
 //        FORMATAÇÃO DAS DATAS
-//        FormatDates fd = FormatDates.getInstance();
+//        ValidatesDates fd = ValidatesDates.getInstance();
 //        Set<LocalDate> fds = fd.formatToDates(patternFile.validatePatternsFile());
 //        System.out.println(fds);
         

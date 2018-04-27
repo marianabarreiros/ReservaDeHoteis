@@ -19,22 +19,22 @@ import java.util.Set;
  *
  * @author qt
  */
-public class FormatDates {
-    private static FormatDates formatDatesInstance;
+public class ValidatesDates {
+    private static ValidatesDates formatDatesInstance;
     private Set<String> dates = new LinkedHashSet<>();
     private Set<LocalDate> formatDates = new LinkedHashSet<>();
     
-    private FormatDates(){     
+    private ValidatesDates(){     
     }
     
-    public static FormatDates getInstance(){
+    public static ValidatesDates getInstance(){
         if(formatDatesInstance == null)
-            formatDatesInstance =  new FormatDates();
+            formatDatesInstance =  new ValidatesDates();
         return formatDatesInstance;
     }
     
 //    CONSIDERE QUE NÃO OCORRERÁ ERROS VINDOS DO ARQUIVO...
-    public Set<LocalDate> formatToDates(String dates){
+    public Set<LocalDate> ValidatesDates(String dates){
        this.dates = this.ignoreDaysOfWeek(dates);
        this.dates.forEach(date ->{
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMuuuu");

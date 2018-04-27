@@ -13,7 +13,7 @@ import core.Client;
  */
 public class FindCheapestHotel {
     private DaysOfWeek day;
-    private FormatDates formatDates;
+    private ValidatesDates formatDates;
     private Client client;
     
     
