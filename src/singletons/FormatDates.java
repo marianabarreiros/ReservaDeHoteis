@@ -54,7 +54,7 @@ public class FormatDates {
         this.dates = this.toSplitDates(datesAsString);
         Set<String> newDates = new LinkedHashSet<String>();
         this.dates.forEach(date ->{;
-           newDates.add(date.substring(0, 9).trim());
+           newDates.add(date.substring(0, 9).trim().toLowerCase());
         });
         return newDates;           
     }
