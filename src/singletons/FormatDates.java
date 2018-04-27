@@ -14,8 +14,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  *
@@ -23,10 +21,8 @@ import java.util.regex.Pattern;
  */
 public class FormatDates {
     private static FormatDates formatDatesInstance;
-    private String[] datesAsString;
     private Set<String> dates = new LinkedHashSet<>();
     private Set<LocalDate> formatDates = new LinkedHashSet<>();
-    private String regex = "(([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)?)";
     
     private FormatDates(){     
     }
@@ -41,18 +37,17 @@ public class FormatDates {
     public Set<LocalDate> formatToDates(String dates){
        this.dates = this.ignoreDaysOfWeek(dates);
        this.dates.forEach(date ->{
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dMMMuuuu");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMuuuu");
             try {
                LocalDate localDate = LocalDate.parse(date,formatter);
                formatDates.add(localDate);
 //               TENTAR COLOCAR A LINHA DO ARQUIVO E O ÍNDICE1!!!
            } catch (DateTimeParseException e) {
                 System.out.println("A Data " + date + ", " + " não é uma data válida. Favor, corrigir!");
-                exit(0);
+//                exit(0);
            }  
        });
-       return formatDates;
-       
+       return formatDates;      
     }
     
     private Set<String> ignoreDaysOfWeek(String datesAsString){
@@ -65,26 +60,9 @@ public class FormatDates {
     }
     
     private Set<String> toSplitDates(String dates){
-        datesAsString = this.getDates(dates);
-        this.dates = new LinkedHashSet(Arrays.asList(datesAsString));
+        String[] datesSplit = null;
+        datesSplit = dates.split(",");
+        this.dates = new LinkedHashSet(Arrays.asList(datesSplit));
         return this.dates; 
-    }
-    
-    private String[] getDates(String dates){
-        Pattern padrao = Pattern.compile(regex);
-        Matcher mat = padrao.matcher(dates);
-        if (mat.matches()) {
-           mat.reset();
-            while (mat.find()) {
-//                datesAsString += (mat.group());
-            }
-        } else {
-            System.out.println("Arquivo inválido! Exemplo de formato aceito: 'Rewards:99Aaa999(aaaa),99Aaa999(aaaa),99Aaa999(aaaa),99Aaa999(aaaa),99Aaa999(aaaa)'");
-            System.exit(0);
-        }
-//        new ArrayList<String>().toArray(new String[0]);
-        
-        this.datesAsString = dates.split(regex);
-        return this.datesAsString;
-    }    
+    }  
 }

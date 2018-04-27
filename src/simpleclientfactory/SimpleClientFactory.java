@@ -16,9 +16,7 @@ import core.Client;
 public class SimpleClientFactory {
     private Client client = null;
 
-    public Client getClient() {
-        return client;
-    }
+    public Client getClient() {return client;}
     
     public boolean creatClient(String client){
         switch(client.toLowerCase()){

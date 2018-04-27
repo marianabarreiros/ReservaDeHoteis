@@ -36,12 +36,13 @@ public class ValidateFileLines {
             String client = stringSplit[i].substring(0, endIndex);
             String dates = stringSplit[i].substring(endIndex+1);
 //            VALIDE O CLIENTE E AS DATAS. SE OS 2 FOREM VÁLIDOS INCLUA NO DICIONÁRIO E ENVIE O MAP. FALTA PEGAR AS DATAS
-            if(simpleClientFactory.creatClient(client))
-                mapClientsEndDates.put(simpleClientFactory.getClient(), );                              
+            if(simpleClientFactory.creatClient(client)){
+                FormatDates fd = FormatDates.getInstance();
+                mapClientsEndDates.put(simpleClientFactory.getClient(), (LinkedHashSet<LocalDate>) fd.formatToDates(dates));  
+            }                            
             else
                 continue;
         }
-    return (LinkedHashMap<Client, LinkedHashSet<LocalDate>>) mapClientsEndDates;
-            
+    return (LinkedHashMap<Client, LinkedHashSet<LocalDate>>) mapClientsEndDates;        
     }
 }
