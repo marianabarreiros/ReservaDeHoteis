@@ -58,7 +58,7 @@ public class ValidatesDates {
         return newDates;           
     }
     
-    private Set<String> toSplitDates(String dates){
+    public Set<String> toSplitDates(String dates){
         String[] datesSplit = null;
         datesSplit = dates.split(",");
         this.dates = new LinkedHashSet(Arrays.asList(datesSplit));
