@@ -26,7 +26,7 @@ public class RunApp {
         
 //        VALIDAR AS LINHAS E COLOCAR EM UM MAP
         ValidateFileLines vfl = ValidateFileLines.getInstance();
-        vfl.validateFileLines(patternFile.validatePatternsFile());
+        vfl.parseFileLines(patternFile.validatePatternsFile());
         
 //        FORMATAÇÃO DAS DATAS
 //        ValidatesDates fd = ValidatesDates.getInstance();

@@ -5,28 +5,73 @@
  */
 package model.hotel;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  *
  * @author qt
  */
 public class Hotel {
+
     private char classification;
-    private double valueDayOfWeekRegular;
-    private double valueDayOfWeekendRegular;
-    private double valueDayOfWeekReward;
-    private double valueDayOfWeekendReward;
-    
-    public Hotel(char classification, double valueDayOfWeekRegular, double valueDayOfWeekendRegular, double valueDayOfWeekReward, double valueDayOfWeekendReward){
+    /**
+     * Map de Tipo Cliente
+     */
+    private Map<String, Map<String, Double>> valores;
+
+    public Hotel(char classification) {
         this.classification = classification;
-        this.valueDayOfWeekRegular = valueDayOfWeekRegular;
-        this.valueDayOfWeekendRegular = valueDayOfWeekendRegular;
-        this.valueDayOfWeekReward = valueDayOfWeekReward;
-        this.valueDayOfWeekendReward = valueDayOfWeekendReward;    
+        this.valores = new HashMap<>();
     }
-    
-    public char getClassification() {return classification;}
-    public double getValueDayOfWeekRegular() {return valueDayOfWeekRegular;}
-    public double getValueDayOfWeekendRegular() {return valueDayOfWeekendRegular;}
-    public double getValueDayOfWeekReward() {return valueDayOfWeekReward;}
-    public double getValueDayOfWeekendReward() {return valueDayOfWeekendReward;}  
+
+    public char getClassification() {
+        return classification;
+    }
+
+    /**
+     * "Regular", "DayOfWeek", 150
+     * "Regular", "DayOfWeekend", 300
+     * "Rewards", "DayOfWeek", 250
+     * "Rewards", "DayOfWeekend", 500
+     */
+    public boolean addValueByDayAndClientType(String tipoClient, String dayOfWeek, Double value) {
+        boolean inserido = Boolean.FALSE;
+
+        if (valores.containsKey(tipoClient)) {
+            Map<String, Double> diasCliente = valores.get(tipoClient);
+            if (!diasCliente.containsKey(dayOfWeek)) {
+                diasCliente.put(dayOfWeek, value);
+                inserido = Boolean.TRUE;
+            }
+        } else {
+            HashMap<String, Double> valoresPorData = new HashMap<>();
+            valoresPorData.put(dayOfWeek, value);
+
+            valores.put(tipoClient, valoresPorData);
+            inserido = Boolean.TRUE;
+        }
+        return inserido;
+    }
+
+    public boolean verifyDayByClientType(String tipoClient, String dayOfWeek) {
+        if (valores.containsKey(tipoClient)) {
+            Map<String, Double> diasCliente = valores.get(tipoClient);
+            if (diasCliente.containsKey(dayOfWeek)) {
+                return Boolean.TRUE;
+            }
+        }
+        return Boolean.FALSE;
+    }
+
+    public Double getValueByDayAndClientType(String tipoClient, String dayOfWeek) {
+        if (valores.containsKey(tipoClient)) {
+            Map<String, Double> diasCliente = valores.get(tipoClient);
+            if (diasCliente.containsKey(dayOfWeek)) {
+                return diasCliente.get(dayOfWeek);
+            }
+        }
+        return null;
+    }
+
 }
