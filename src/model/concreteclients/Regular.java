@@ -12,8 +12,8 @@ import model.abstractclient.Client;
  * @author qt
  */
 public class Regular extends Client{   
-
+    private final String REGULAR = "Regular";
     @Override
-    public String getTypeClient() {return "Regular";}
+    public String getTypeClient() {return REGULAR;}
 
 }
