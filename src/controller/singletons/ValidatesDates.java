@@ -14,54 +14,58 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  *
  * @author qt
  */
 public class ValidatesDates {
+
     private static ValidatesDates formatDatesInstance;
-    private Set<String> dates = new LinkedHashSet<>();
-    private Set<LocalDate> formatDates = new LinkedHashSet<>();
-    
-    private ValidatesDates(){     
+    private Set<String> dates;
+    private Set<LocalDate> formatDates;
+
+    private ValidatesDates() {
     }
-    
-    public static ValidatesDates getInstance(){
-        if(formatDatesInstance == null)
-            formatDatesInstance =  new ValidatesDates();
+
+    public static ValidatesDates getInstance() {
+        if (formatDatesInstance == null) {
+            formatDatesInstance = new ValidatesDates();
+        }
         return formatDatesInstance;
     }
 
-    public Set<LocalDate> ValidatesDates(String dates){
-       this.dates = this.ignoreDaysOfWeek(dates);
-       this.dates.forEach(date ->{
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMuuuu");
+    public Set<LocalDate> validatesDates(String dates) {
+        formatDates = new LinkedHashSet<>();
+        this.dates = this.ignoreDaysOfWeek(dates);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMuuuu");
+        AtomicBoolean isValido = new AtomicBoolean(Boolean.TRUE);
+        this.dates.forEach(date -> {
             try {
-               LocalDate localDate = LocalDate.parse(date,formatter);
-               formatDates.add(localDate);
+                LocalDate localDate = LocalDate.parse(date, formatter);
+                formatDates.add(localDate);
 //               TENTAR COLOCAR A LINHA DO ARQUIVO E O ÍNDICE1!!!
-           } catch (DateTimeParseException e) {
-                System.out.println("A Data " + date + ", " + " não é uma data válida. Favor, corrigir!");
-//                exit(0);
-           }  
-       });
-       return formatDates;      
-    }
-    
-    private Set<String> ignoreDaysOfWeek(String datesAsString){
-        this.dates = this.toSplitDates(datesAsString);
-        Set<String> newDates = new LinkedHashSet<String>();
-        this.dates.forEach(date ->{;
-           newDates.add(date.substring(0, 9).trim().toLowerCase());
+            } catch (DateTimeParseException e) {
+                isValido.set((Boolean.FALSE));
+            }
         });
-        return newDates;           
+        return isValido.get() ? formatDates : null;
     }
-    
-    public Set<String> toSplitDates(String dates){
+
+    private Set<String> ignoreDaysOfWeek(String datesAsString) {
+        this.dates = this.toSplitDates(datesAsString);
+        Set<String> newDates = new LinkedHashSet<>();
+        this.dates.forEach(date -> {
+            newDates.add(date.substring(0, 9).trim().toLowerCase());
+        });
+        return newDates;
+    }
+
+    public Set<String> toSplitDates(String dates) {
         String[] datesSplit = null;
         datesSplit = dates.split(",");
         this.dates = new LinkedHashSet(Arrays.asList(datesSplit));
-        return this.dates; 
-    }  
+        return this.dates;
+    }
 }
