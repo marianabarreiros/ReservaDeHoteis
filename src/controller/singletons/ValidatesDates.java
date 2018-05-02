@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package singletons;
+package controller.singletons;
 
 import static java.lang.System.exit;
 import static java.lang.reflect.Array.set;

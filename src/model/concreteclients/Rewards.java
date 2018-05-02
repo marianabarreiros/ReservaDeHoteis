@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package concreteclients;
+package model.concreteclients;
 
-import core.Client;
+import model.abstractclient.Client;
 
 /**
  *
  * @author qt
  */
-public class Regular extends Client{   
+public class Rewards extends Client{
 
     @Override
-    public String getTypeClient() {return "Regular";}
-
+    public String getTypeClient() {return "Rewards";}
+  
 }

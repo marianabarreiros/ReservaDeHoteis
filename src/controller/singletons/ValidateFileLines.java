@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package singletons;
+package controller.singletons;
 
-import core.Client;
+import model.abstractclient.Client;
 import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
-import simpleclientfactory.SimpleClientFactory;
+import controller.simpleclientfactory.SimpleClientFactory;
 
 /**
  *

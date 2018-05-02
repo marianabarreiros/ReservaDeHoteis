@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package validatefaile;
+package controller.validatefaile;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import singletons.ReadFile;
+import controller.singletons.ReadFile;
 
 /**
  *

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package simpleclientfactory;
+package controller.simpleclientfactory;
 
-import concreteclients.Regular;
-import concreteclients.Rewards;
-import core.Client;
+import model.concreteclients.Regular;
+import model.concreteclients.Rewards;
+import model.abstractclient.Client;
 
 /**
  *

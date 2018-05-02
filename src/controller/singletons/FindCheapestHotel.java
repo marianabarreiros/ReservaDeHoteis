@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package singletons;
+package controller.singletons;
 
-import core.Client;
+import model.abstractclient.Client;
 
 /**
  *
  * @author Win-7
  */
 public class FindCheapestHotel {
-    private DaysOfWeek day;
     private ValidatesDates formatDates;
     private Client client;
     

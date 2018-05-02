@@ -5,13 +5,13 @@
  */
 package core;
 
-import singletons.ReadFile;
-import hotel.Hotel;
+import controller.singletons.ReadFile;
+import model.hotel.Hotel;
 import java.time.LocalDate;
 import java.util.Set;
-import singletons.ValidatesDates;
-import singletons.ValidateFileLines;
-import validatefaile.ValidatePatternFile;
+import controller.singletons.ValidatesDates;
+import controller.singletons.ValidateFileLines;
+import controller.validatefaile.ValidatePatternFile;
 
 /**
  *
