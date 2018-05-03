@@ -40,7 +40,7 @@ public class ValidateFileLines {
             if (clienteCriado && datasValidas != null) {
                 mapClientsEndDates.put(simpleClientFactory.getClient().getTypeClient(), datasValidas);
             } else {
-                System.out.println("Mensagem de erro ao criar usuário ou a data não é válida, na linha: " + (i + 1));
+                System.out.println("Erro ao criar usuário ou a data não é válida, na linha: " + (i + 1));
             }
         }
         return mapClientsEndDates;
