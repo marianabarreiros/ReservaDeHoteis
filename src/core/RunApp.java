@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package core;
 
 import controller.singletons.ReadFile;
@@ -13,10 +8,6 @@ import controller.singletons.ValidatesDates;
 import controller.singletons.ValidateFileLines;
 import controller.validatefaile.ValidatePatternFile;
 
-/**
- *
- * @author qt
- */
 public class RunApp {
 
     public static void main(String[] Args) {

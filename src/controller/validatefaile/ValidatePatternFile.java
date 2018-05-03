@@ -1,19 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.validatefaile;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import controller.singletons.ReadFile;
 
-/**
- *
- * @author Win-7
- */
 public class ValidatePatternFile {
     private String StringByFileValidated = "";
     private String regex = "((([a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})\\n?"; // https://regexr.com/
@@ -25,7 +15,6 @@ public class ValidatePatternFile {
 
     public String validatePatternsFile() {
         String[] stringSplit = this.toSplit(this.removeSpaces(stringByFile));
-        int size = stringSplit.length;
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher;
         for(int i = 0; i<stringSplit.length; i++){
@@ -42,7 +31,7 @@ public class ValidatePatternFile {
 
     private String removeSpaces(String string) {return string.replace(" ", "").trim();}
 
-    public String[] toSplit(String string) {
+    private String[] toSplit(String string) {
         String[] stringSplit = null;
         stringSplit = string.split("\n");
         return stringSplit;

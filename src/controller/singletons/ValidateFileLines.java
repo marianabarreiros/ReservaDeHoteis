@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.singletons;
 
 import model.abstractclient.Client;
@@ -14,10 +9,6 @@ import controller.simpleclientfactory.SimpleClientFactory;
 import java.util.Set;
 import java.util.TreeMap;
 
-/**
- *
- * @author qt
- */
 public class ValidateFileLines {
 
     private static ValidateFileLines validateFileLinesInstance;
