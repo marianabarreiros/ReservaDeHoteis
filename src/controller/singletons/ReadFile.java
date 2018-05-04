@@ -20,7 +20,7 @@ public class ReadFile {
     
     public String readFile(){
         StringBuilder stringsByFile = new StringBuilder();
-        final String FILE = "HotelReservation" + File.separator + "HotelReservation.txt"; //MUDAR PARA O NOME DO PACOTE
+        final String FILE = "file" + File.separator + "HotelReservation.txt"; //MUDAR PARA O NOME DO PACOTE
         try (Stream<String> stream = Files.lines(Paths.get(getClass().getClassLoader().getResource(FILE).toURI()))){
             stream.forEach(s -> stringsByFile.append(s + "\n"));
         } catch (Exception e) {

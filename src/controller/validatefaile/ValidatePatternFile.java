@@ -18,8 +18,7 @@ public class ValidatePatternFile {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher;
         for(int i = 0; i<stringSplit.length; i++){
-            matcher = pattern.matcher(stringSplit[i]);
-            if(matcher.matches())
+            if(pattern.matcher(stringSplit[i]).matches())
                 StringByFileValidated += stringSplit[i].concat("\n");
             else {
 //            PEGUE A LINHA DO ARQUIVO ONDE FOI ENCONTRADO O ERRO!!!!
