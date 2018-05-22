@@ -1,25 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller.singletons;
 
-import static java.lang.System.exit;
-import static java.lang.reflect.Array.set;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Collectors;
 
-/**
- *
- * @author qt
- */
 public class ValidatesDates {
 
     private static ValidatesDates formatDatesInstance;
@@ -36,36 +26,41 @@ public class ValidatesDates {
         return formatDatesInstance;
     }
 
-    public Set<LocalDate> validatesDates(String dates) {
+    public Set<LocalDate> validatesDates(List<String> dates) {
         formatDates = new LinkedHashSet<>();
-        this.dates = this.ignoreDaysOfWeek(dates);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMuuuu");
         AtomicBoolean isValido = new AtomicBoolean(Boolean.TRUE);
+        this.dates = ignoreDaysOfWeek(toSplitDates(dates));
         this.dates.forEach(date -> {
             try {
                 LocalDate localDate = LocalDate.parse(date, formatter);
                 formatDates.add(localDate);
-//               TENTAR COLOCAR A LINHA DO ARQUIVO E O ÍNDICE1!!!
             } catch (DateTimeParseException e) {
                 isValido.set((Boolean.FALSE));
             }
         });
         return isValido.get() ? formatDates : null;
     }
-
-    private Set<String> ignoreDaysOfWeek(String datesAsString) {
-        this.dates = this.toSplitDates(datesAsString);
-        Set<String> newDates = new LinkedHashSet<>();
-        this.dates.forEach(date -> {
-            newDates.add(date.substring(0, 9).trim().toLowerCase());
-        });
-        return newDates;
+    
+    private Set<String> ignoreDaysOfWeek(Set<String> dates) {
+        Set<String> datesWithoutWeek = dates.stream()
+                .map(date -> date.substring(0, 9).toLowerCase())
+                .collect(Collectors.toSet());
+        return datesWithoutWeek;       
     }
-
-    private Set<String> toSplitDates(String dates) {
+    
+    private Set<String> toSplitDates(List<String> dates) {
+        String text = parseListToString(dates);
         String[] datesSplit = null;
-        datesSplit = dates.split(",");
-        this.dates = new LinkedHashSet(Arrays.asList(datesSplit));
-        return this.dates;
+        datesSplit = text.split(",");
+        return this.dates = new LinkedHashSet(Arrays.asList(datesSplit));
+    }
+    
+    private String parseListToString(List<String> dates){
+        String text = "";
+        for(String s : dates){
+            text += s + ",";
+        }
+        return text.substring(0, text.length()-1);
     }
 }
