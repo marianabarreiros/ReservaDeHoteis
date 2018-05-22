@@ -1,77 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.hotel;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import teste.PriceTable;
 
-/**
- *
- * @author qt
- */
 public class Hotel {
+  private String name;
+  private char classification;
+  private List<PriceTable> priceTable;
 
-    private char classification;
-    /**
-     * Map de Tipo Cliente
-     */
-    private Map<String, Map<String, Double>> valores;
-
-    public Hotel(char classification) {
+    public Hotel(String name, char classification) {
+        this.name = name;
         this.classification = classification;
-        this.valores = new HashMap<>();
+        priceTable = new ArrayList<>();
     }
 
+    public String getName() {
+        return name;
+    }
+    
     public char getClassification() {
         return classification;
     }
 
-    /**
-     * "Regular", "DayOfWeek", 150
-     * "Regular", "DayOfWeekend", 300
-     * "Rewards", "DayOfWeek", 250
-     * "Rewards", "DayOfWeekend", 500
-     */
-    public boolean addValueByDayAndClientType(String tipoClient, String dayOfWeek, Double value) {
-        boolean inserido = Boolean.FALSE;
-
-        if (valores.containsKey(tipoClient)) {
-            Map<String, Double> diasCliente = valores.get(tipoClient);
-            if (!diasCliente.containsKey(dayOfWeek)) {
-                diasCliente.put(dayOfWeek, value);
-                inserido = Boolean.TRUE;
-            }
-        } else {
-            HashMap<String, Double> valoresPorData = new HashMap<>();
-            valoresPorData.put(dayOfWeek, value);
-
-            valores.put(tipoClient, valoresPorData);
-            inserido = Boolean.TRUE;
-        }
-        return inserido;
+    public List<PriceTable> getPriceTable() {
+        return priceTable;
     }
-
-    public boolean verifyDayByClientType(String tipoClient, String dayOfWeek) {
-        if (valores.containsKey(tipoClient)) {
-            Map<String, Double> diasCliente = valores.get(tipoClient);
-            if (diasCliente.containsKey(dayOfWeek)) {
-                return Boolean.TRUE;
-            }
-        }
-        return Boolean.FALSE;
+    
+    private boolean thereIsClient(PriceTable table){
+        return priceTable.stream()
+                .filter(p -> p.getClient().equalsIgnoreCase(table.getClient()))
+                .findAny()
+                .isPresent();
     }
-
-    public Double getValueByDayAndClientType(String tipoClient, String dayOfWeek) {
-        if (valores.containsKey(tipoClient)) {
-            Map<String, Double> diasCliente = valores.get(tipoClient);
-            if (diasCliente.containsKey(dayOfWeek)) {
-                return diasCliente.get(dayOfWeek);
-            }
-        }
-        return null;
+    
+    public void addPriceTableDynamically(PriceTable table){        
+        if(!thereIsClient(table)){
+            priceTable.add(table);
+        }else
+            System.out.println("Esse Cliente já foi adicionado ao hotel"); 
     }
-
 }
