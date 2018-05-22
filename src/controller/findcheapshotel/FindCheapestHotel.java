@@ -38,9 +38,9 @@ public class FindCheapestHotel {
 //                .collect(Collectors.toList());
 //    }
     
-    private double getFullValue(Hotel hotel){
+    private double getFullValueForPeriodRequested(Hotel hotel){
         double full = 0;
-        PriceTable price = getPriceByClient(hotel, getClient());       
+        PriceTable price = getPriceTableByClient(hotel, getClient());       
             for(Map.Entry<String, Set<LocalDate>> map : mapOfClientsEndDates.entrySet()){
                 for(LocalDate date : map.getValue()){
                     if(date.getDayOfWeek().getValue() == 6 || date.getDayOfWeek().getValue() == 7){
@@ -52,16 +52,16 @@ public class FindCheapestHotel {
     return full;
 }
     
-    private PriceTable getPriceByClient(Hotel hotel, String cliente) {
+    private PriceTable getPriceTableByClient(Hotel hotel, String client) {
         return hotel.getPriceTable().stream()
-                .filter(p -> p.getClientType().equalsIgnoreCase(cliente))
+                .filter(p -> p.getClientType().equalsIgnoreCase(client))
                 .findAny()
                 .get();
     }
     
 //    public String findCheapestHotel(){
 //        for(int i=0; i<hotelList.size(); i++){
-//            double total = getFullValue(hotelList.get(i));
+//            double total = getFullValueForPeriodRequested(hotelList.get(i));
 //            quotations.add(new Quotation(hotelList.get(i), total));
 //        }
 //        java.util.Optional<Quotation> quotation = quotations.stream()
