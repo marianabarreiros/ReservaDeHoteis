@@ -29,7 +29,7 @@ public class MapOfClientsEndDates {
     }
     
     public Map<String, Set<LocalDate>> createMapOfClientsEndDates(List<String> string) {        
-        ValidatesDates fd = ValidatesDates.getInstance();
+        DatesValidation fd = DatesValidation.getInstance();
         String client = null;
         String[] dates;
         int endIndex = 0;
@@ -39,9 +39,9 @@ public class MapOfClientsEndDates {
             dates = s.substring(endIndex + 1).split(",");
             List<String> datesAsList = Arrays.asList(dates);
             final boolean clienteCriado = simpleClientFactory.creatClient(client);
-            final Set<LocalDate> datasValidas = fd.validatesDates(datesAsList);  
+            final Set<LocalDate> datasValidas = fd.returnsListOfValidatedDates(datesAsList);  
             if (clienteCriado && datasValidas != null) {
-                mapClientsEndDates.put(simpleClientFactory.getClient().getTypeClient(), datasValidas);
+                mapClientsEndDates.put(simpleClientFactory.getClientType().getTypeClient(), datasValidas);
             } else {
                 System.out.println("Erro ao criar usuário ou a data não é válida " + s);
             }
@@ -53,13 +53,13 @@ public class MapOfClientsEndDates {
 //    PARA TER UM MÉTODO COM A RESPONSABILIDADE DE APENAS VALIDAR A LINHA
 //    public boolean validateLine(String line) {        
 //        boolean value =  false;
-//        ValidatesDates fd = ValidatesDates.getInstance();
+//        DatesValidation fd = DatesValidation.getInstance();
 //        int endIndex = line.indexOf(":");
 //        String client = line.substring(0, endIndex);
 //        String[] dates = line.substring(endIndex + 1).split(",");
 //        List<String> datesAsList = Arrays.asList(dates);
 //        final boolean clienteCriado = simpleClientFactory.creatClient(client);
-//        final Set<LocalDate> datasValidas = fd.validatesDates(datesAsList);
+//        final Set<LocalDate> datasValidas = fd.returnsListOfValidatedDates(datesAsList);
 //        if (clienteCriado && datasValidas != null) 
 //            value = true;
 //        else
@@ -76,9 +76,9 @@ public class MapOfClientsEndDates {
 //    
 //    public Set<LocalDate> getValidatedDates(String line){
 //        int endIndex = line.indexOf(":");
-//        ValidatesDates fd = ValidatesDates.getInstance();
+//        DatesValidation fd = DatesValidation.getInstance();
 //        String[] dates = line.substring(endIndex + 1).split(",");
 //        List<String> datesAsList = Arrays.asList(dates);
-//        return fd.validatesDates(datesAsList);
+//        return fd.returnsListOfValidatedDates(datesAsList);
 //    }
 //}

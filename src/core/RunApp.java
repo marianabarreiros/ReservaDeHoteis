@@ -1,6 +1,6 @@
 package core;
 
-import controller.singletons.ReadFile;
+import controller.singletons.FileReading;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ public class RunApp {
 
     public static void main(String[] args) throws URISyntaxException, IOException {
         
-//        ReadFile readFile = new ReadFile();
+//        FileReading readFile = new FileReading();
 //        Map<String, Set<LocalDate>> map = new TreeMap();
 //       
 //        

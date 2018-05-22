@@ -5,17 +5,17 @@ import model.concreteclients.Rewards;
 import model.abstractclient.Client;
 
 public class SimpleClientFactory {
-    private Client client = null;
+    private Client clientType = null;
 
-    public Client getClient() {return client;}
+    public Client getClientType() {return clientType;}
     
     public boolean creatClient(String client){
         switch(client.toLowerCase()){
             case "regular":
-                this.client = new Regular();
+                this.clientType = new Regular();
                 return true;
             case "rewards":
-                this.client = new Rewards(); 
+                this.clientType = new Rewards(); 
                 return true;
             default: 
                 return false;

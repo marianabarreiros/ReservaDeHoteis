@@ -1,33 +1,23 @@
 package teste;
 
 public class PriceTable {
-    private String client;
-    private double weekdayPrices;
-    private double weekendRates;
+    private String clientType;
+    private double weekdayPrice;
+    private double weekendRate;
 
-    public PriceTable(String client, double weekdayPrices, double weekendRates) {
-        this.client = client;
-        this.weekdayPrices = weekdayPrices;
-        this.weekendRates = weekendRates;
+    public PriceTable(String clientType, double weekdayPrice, double weekendRate) {
+        this.clientType = clientType;
+        this.weekdayPrice = weekdayPrice;
+        this.weekendRate = weekendRate;
     }
 
-    public String getClient() {
-        return client;
-    }
+    public String getClientType() {return clientType;}
 
-    public double getWeekdayPrices() {
-        return weekdayPrices;
-    }
+    public double getWeekdayPrice() {return weekdayPrice;}
 
-    public double getWeekendRates() {
-        return weekendRates;
-    }
+    public double getWeekendRate() {return weekendRate;}
 
-    public void setWeekdayPrices(double weekdayPrices) {
-        this.weekdayPrices = weekdayPrices;
-    }
+    public void setWeekdayPrice(double weekdayPrice) {this.weekdayPrice = weekdayPrice;}
 
-    public void setWeekendRates(double weekendRates) {
-        this.weekendRates = weekendRates;
-    }  
+    public void setWeekendRate(double weekendRate) {this.weekendRate = weekendRate;}  
 }

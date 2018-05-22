@@ -44,9 +44,9 @@ public class FindCheapestHotel {
             for(Map.Entry<String, Set<LocalDate>> map : mapOfClientsEndDates.entrySet()){
                 for(LocalDate date : map.getValue()){
                     if(date.getDayOfWeek().getValue() == 6 || date.getDayOfWeek().getValue() == 7){
-                        full += price.getWeekendRates();
+                        full += price.getWeekendRate();
                     }else{
-                        full += price.getWeekdayPrices();}
+                        full += price.getWeekdayPrice();}
             }
         }
     return full;
@@ -54,7 +54,7 @@ public class FindCheapestHotel {
     
     private PriceTable getPriceByClient(Hotel hotel, String cliente) {
         return hotel.getPriceTable().stream()
-                .filter(p -> p.getClient().equalsIgnoreCase(cliente))
+                .filter(p -> p.getClientType().equalsIgnoreCase(cliente))
                 .findAny()
                 .get();
     }
