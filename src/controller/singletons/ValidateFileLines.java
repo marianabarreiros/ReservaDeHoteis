@@ -6,8 +6,10 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import controller.simpleclientfactory.SimpleClientFactory;
+import java.util.Collections;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.stream.Stream;
 
 public class ValidateFileLines {
 
@@ -43,7 +45,7 @@ public class ValidateFileLines {
                 System.out.println("Erro ao criar usuário ou a data não é válida, na linha: " + (i + 1));
             }
         }
-        return mapClientsEndDates;
+        return Collections.unmodifiableMap(mapClientsEndDates);
     }
 
 }
