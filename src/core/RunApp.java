@@ -5,7 +5,7 @@ import model.hotel.Hotel;
 import java.time.LocalDate;
 import java.util.Set;
 import controller.singletons.ValidatesDates;
-import controller.singletons.ValidateFileLines;
+import controller.singletons.ValidatesFile;
 import controller.validatefaile.ValidatePatternFile;
 
 public class RunApp {
@@ -16,7 +16,7 @@ public class RunApp {
         ValidatePatternFile patternFile = new ValidatePatternFile(rf.readFile());
         
 //        VALIDAR AS LINHAS E COLOCAR EM UM MAP
-        ValidateFileLines vfl = ValidateFileLines.getInstance();
+        ValidatesFile vfl = ValidatesFile.getInstance();
         vfl.parseFileLines(patternFile.validatePatternsFile());
         
 //        FORMATAÇÃO DAS DATAS
