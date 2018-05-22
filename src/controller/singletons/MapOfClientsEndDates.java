@@ -29,7 +29,7 @@ public class MapOfClientsEndDates {
     }
     
     public Map<String, Set<LocalDate>> createMapOfClientsEndDates(List<String> string) {        
-        DatesValidation fd = DatesValidation.getInstance();
+        ValidDates fd = ValidDates.getInstance();
         String client = null;
         String[] dates;
         int endIndex = 0;
@@ -53,7 +53,7 @@ public class MapOfClientsEndDates {
 //    PARA TER UM MÉTODO COM A RESPONSABILIDADE DE APENAS VALIDAR A LINHA
 //    public boolean validateLine(String line) {        
 //        boolean value =  false;
-//        DatesValidation fd = DatesValidation.getInstance();
+//        ValidDates fd = ValidDates.getInstance();
 //        int endIndex = line.indexOf(":");
 //        String client = line.substring(0, endIndex);
 //        String[] dates = line.substring(endIndex + 1).split(",");
@@ -76,7 +76,7 @@ public class MapOfClientsEndDates {
 //    
 //    public Set<LocalDate> getValidatedDates(String line){
 //        int endIndex = line.indexOf(":");
-//        DatesValidation fd = DatesValidation.getInstance();
+//        ValidDates fd = ValidDates.getInstance();
 //        String[] dates = line.substring(endIndex + 1).split(",");
 //        List<String> datesAsList = Arrays.asList(dates);
 //        return fd.returnsListOfValidatedDates(datesAsList);

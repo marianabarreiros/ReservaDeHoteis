@@ -12,7 +12,7 @@ import java.util.Set;
 import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import controller.singletons.DatesValidation;
+import controller.singletons.ValidDates;
 
 /**
  *
@@ -23,15 +23,15 @@ public class TestValidateDates {
     
 //    @Test
 //    public void testToSplitDates(){
-//       DatesValidation vd = DatesValidation.getInstance(); 
+//       ValidDates vd = ValidDates.getInstance(); 
 //       Set<LocalDate> dates = new LinkedHashSet<>();
-//       dates = vd.DatesValidation("26Mar2009(thur),27Mar2009(fri),28Mar2009(sat)");
-//       assertEquals(dates, vd.DatesValidation("26Mar2009(thur),27Mar2009(fri),28Mar2009(sat)"));
+//       dates = vd.ValidDates("26Mar2009(thur),27Mar2009(fri),28Mar2009(sat)");
+//       assertEquals(dates, vd.ValidDates("26Mar2009(thur),27Mar2009(fri),28Mar2009(sat)"));
 //    }
 //    
 //    @Test
 //    public void testGetDates(){
-//        DatesValidation vd = DatesValidation.getInstance(); 
+//        ValidDates vd = ValidDates.getInstance(); 
 //        Set<String> datesList = new LinkedHashSet<>();
 //        Set<String> dates = new LinkedHashSet<>();
 //        datesList.add("26Mar2009(thur)");

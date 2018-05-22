@@ -6,12 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class FileLinesValidation {
+public class ValidateFileLines {
     private final String REGEX = "((([a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})\\n?"; // https://regexr.com/
     private List<String> listOfValidatedFileLines;
     private List<String> listOfFileLines;
 
-    public FileLinesValidation(List<String> listOfFileLines) {
+    public ValidateFileLines(List<String> listOfFileLines) {
         this.listOfFileLines = listOfFileLines;
         listOfValidatedFileLines = new ArrayList<>();            
     }

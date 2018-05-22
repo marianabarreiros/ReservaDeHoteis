@@ -10,18 +10,18 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.stream.Collectors;
 
-public class DatesValidation {
+public class ValidDates {
 
-    private static DatesValidation datesValidationInstance;
+    private static ValidDates datesValidationInstance;
     private Set<String> dates;
     private Set<LocalDate> validatedDates;
 
-    private DatesValidation() {
+    private ValidDates() {
     }
 
-    public static DatesValidation getInstance() {
+    public static ValidDates getInstance() {
         if (datesValidationInstance == null) {
-            datesValidationInstance = new DatesValidation();
+            datesValidationInstance = new ValidDates();
         }
         return datesValidationInstance;
     }
