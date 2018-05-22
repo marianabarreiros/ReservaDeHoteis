@@ -1,20 +1,10 @@
 package core;
 
-import controller.singletons.FileReading;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-
+import controller.mapofclientsanddates.UnmodifiableMapOfClientsEndDates;
 
 public class RunApp {
 
-    public static void main(String[] args) throws URISyntaxException, IOException {
-        
+    public static void main(String[] args){   
 //        FileReading readFile = new FileReading();
 //        Map<String, Set<LocalDate>> map = new TreeMap();
 //       
@@ -44,6 +34,8 @@ public class RunApp {
 //            FindCheapestHotel findCheapsHotel = new FindCheapestHotel((Map<String, Set<LocalDate>>) mp, hotelList);  
 //            System.out.println();
 //        }
+
+    
     }
 }
 
