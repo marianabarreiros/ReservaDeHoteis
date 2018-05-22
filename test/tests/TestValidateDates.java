@@ -21,13 +21,13 @@ import controller.singletons.ValidatesDates;
 public class TestValidateDates {
     
     
-    @Test
-    public void testToSplitDates(){
-       ValidatesDates vd = ValidatesDates.getInstance(); 
-       Set<LocalDate> dates = new LinkedHashSet<>();
-       dates = vd.ValidatesDates("26Mar2009(thur),27Mar2009(fri),28Mar2009(sat)");
-       assertEquals(dates, vd.ValidatesDates("26Mar2009(thur),27Mar2009(fri),28Mar2009(sat)"));
-    }
+//    @Test
+//    public void testToSplitDates(){
+//       ValidatesDates vd = ValidatesDates.getInstance(); 
+//       Set<LocalDate> dates = new LinkedHashSet<>();
+//       dates = vd.ValidatesDates("26Mar2009(thur),27Mar2009(fri),28Mar2009(sat)");
+//       assertEquals(dates, vd.ValidatesDates("26Mar2009(thur),27Mar2009(fri),28Mar2009(sat)"));
+//    }
 //    
 //    @Test
 //    public void testGetDates(){

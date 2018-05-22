@@ -1,43 +1,49 @@
 package core;
 
 import controller.singletons.ReadFile;
-import model.hotel.Hotel;
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
-import controller.singletons.ValidatesDates;
-import controller.singletons.ValidatesFile;
-import controller.validatefaile.ValidatePatternFile;
+import java.util.TreeMap;
+
 
 public class RunApp {
 
-    public static void main(String[] Args) {
-//        LEITURA DO ARQUIVO
-        ReadFile rf = ReadFile.getInstance();
-        ValidatePatternFile patternFile = new ValidatePatternFile(rf.readFile());
+    public static void main(String[] args) throws URISyntaxException, IOException {
         
-//        VALIDAR AS LINHAS E COLOCAR EM UM MAP
-        ValidatesFile vfl = ValidatesFile.getInstance();
-        vfl.parseFileLines(patternFile.validatePatternsFile());
-        
-//        FORMATAÇÃO DAS DATAS
-//        ValidatesDates fd = ValidatesDates.getInstance();
-//        Set<LocalDate> fds = fd.formatToDates(patternFile.validatePatternsFile());
-//        System.out.println(fds);
-        
-//        CRIAÇÃO DOS HOTEIS
-//        Hotel lakewood = new Hotel('3', 110, 90, 80, 80);
-//        Hotel bridgewood = new Hotel('4', 160, 60, 110, 50);
-//        Hotel ridgewood = new Hotel('5', 220, 150, 100, 40);
-
-//        SimpleClientFactory scf = new SimpleClientFactory();
-//        Client client = null;
-//        try {
-//            client = scf.creatClient("Regulam: 17Mar2009(Mon), 18Mar2009(Tue), 19Mar2009(Wed)");
-//        } catch (Exception ex) {
-//            Logger.getLogger(RunApp.class.getName()).log(Level.SEVERE, null, ex);
+//        ReadFile readFile = new ReadFile();
+//        Map<String, Set<LocalDate>> map = new TreeMap();
+//       
+//        
+//            ValidatesFile validateFile = new ValidatesFile(readFile.getListaDeEntradas());
+//            CreateMapOfClientsEndDates createMapOfClientsEndDates = CreateMapOfClientsEndDates.getInstance();
+//            map = createMapOfClientsEndDates.createMap(validateFile.validatePatternsFile());
+//                
+////        Criação dos hoteis
+//        Hotel lakewood = new Hotel("Lakewwod", '2');
+//        
+////        Criação das tabelas de preço
+//        PriceTable pt = new PriceTable("Regular", 100, 80);
+//        PriceTable pt2 = new PriceTable("Especial", 100, 80);
+//        
+////        Adicionando tabelas dinamicamente
+//        lakewood.addPriceTableDynamically(pt);
+//        lakewood.addPriceTableDynamically(pt2);
+//        
+//        List<Hotel> hotelList = Arrays.asList(lakewood);   
+//        
+////        FindCheapestHotel findCheapsHotel = new FindCheapestHotel((Map<String, Set<LocalDate>>) map, hotelList);
+////        System.out.println(findCheapsHotel.getFullValue(lakewood));
+//        
+//        
+//        for(Map.Entry<String, Set<LocalDate>> mp : map.entrySet()){
+//            FindCheapestHotel findCheapsHotel = new FindCheapestHotel((Map<String, Set<LocalDate>>) mp, hotelList);  
+//            System.out.println();
 //        }
-//        System.out.println(client);
-//        Client regular = new Regular();
-//        Client reward = new Reward();
     }
 }
+

@@ -9,6 +9,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import model.hotel.Hotel;
+import model.quotation.Quotation;
+import teste.PriceTable;
 
 public class FindCheapestHotel {
     private Map<String, Set<LocalDate>> mapOfClientsEndDates;
