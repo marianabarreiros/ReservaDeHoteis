@@ -16,8 +16,7 @@ public class ValidDates {
     private Set<String> dates;
     private Set<LocalDate> validatedDates;
 
-    private ValidDates() {
-    }
+    private ValidDates() {}
 
     public static ValidDates getInstance() {
         if (datesValidationInstance == null) {
@@ -44,14 +43,9 @@ public class ValidDates {
     
     private Set<String> toSeparateDateByComma(List<String> dates) {
         String[] datesSeparatedByCommas = null;
-        datesSeparatedByCommas = ConvertingListToStringSeparatingDataWithComma(dates).split(",");
+        String datesCommaSeparated = String.join(",", dates);
+        datesSeparatedByCommas = datesCommaSeparated.split(",");
         return this.dates = new LinkedHashSet(Arrays.asList(datesSeparatedByCommas));
-    }
-    
-    private String ConvertingListToStringSeparatingDataWithComma(List<String> dates){
-        String datesCommaSeparated = dates.stream()
-                                    .collect(Collectors.joining(","));
-        return datesCommaSeparated;
     }
     
     private Set<String> getDatesWithoutDaysOfWeek(Set<String> dates) {
