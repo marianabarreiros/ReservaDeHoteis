@@ -43,18 +43,15 @@ public class ValidDates {
     }
     
     private Set<String> toSeparateDateByComma(List<String> dates) {
-        String text = ConvertingListToStringSeparatingDataWithComma(dates);
         String[] datesSeparatedByCommas = null;
-        datesSeparatedByCommas = text.split(",");
+        datesSeparatedByCommas = ConvertingListToStringSeparatingDataWithComma(dates).split(",");
         return this.dates = new LinkedHashSet(Arrays.asList(datesSeparatedByCommas));
     }
     
     private String ConvertingListToStringSeparatingDataWithComma(List<String> dates){
-        String text = "";
-        for(String date : dates){
-            text += date + ",";
-        }
-        return text.substring(0, text.length()-1);
+        String datesCommaSeparated = dates.stream()
+                                    .collect(Collectors.joining(","));
+        return datesCommaSeparated;
     }
     
     private Set<String> getDatesWithoutDaysOfWeek(Set<String> dates) {
