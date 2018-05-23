@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 public class UnmodifiableMapOfClientsEndDates {
 
     SimpleClientFactory simpleClientFactory = new SimpleClientFactory();
-    private Map<String, Set<LocalDate>> mapClientsEndDates = new TreeMap<>();
+    private Map<String, Set<LocalDate>> mapClientsAndDates = new TreeMap<>();
 
     public Map<String, Set<LocalDate>> createMap(List<String> listOfFileLines) {        
         ValidDates validDates = ValidDates.getInstance();
@@ -31,11 +31,11 @@ public class UnmodifiableMapOfClientsEndDates {
             final boolean createdClient = simpleClientFactory.creatClient(nameClient);
             final Set<LocalDate> validatedDates = validDates.returnsListOfValidatedDates(datesAsList);  
             if (createdClient && validatedDates != null) {
-                mapClientsEndDates.put(simpleClientFactory.getClientType().getTypeClient(), validatedDates);
+                mapClientsAndDates.put(simpleClientFactory.getClientType().getTypeClient(), validatedDates);
             } else {
                 System.out.println("Erro ao criar usuário ou a data não é válida " + fileLine);
             }
         }
-        return Collections.unmodifiableMap(mapClientsEndDates);
+        return Collections.unmodifiableMap(mapClientsAndDates);
         }
 }

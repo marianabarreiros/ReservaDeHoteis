@@ -29,7 +29,7 @@ public class ValidDates {
         validatedDates = new LinkedHashSet<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMuuuu");
         AtomicBoolean isValid = new AtomicBoolean(Boolean.TRUE);
-        this.dates = getDatesWithoutDaysOfWeek(toSeparateDateByComma(dates));
+        this.dates = getDatesWithoutDaysOfWeek(dates);
         this.dates.forEach(date -> {
             try {
                 LocalDate localDate = LocalDate.parse(date, formatter);
@@ -41,14 +41,7 @@ public class ValidDates {
         return isValid.get() ? validatedDates : null;
     }
     
-    private Set<String> toSeparateDateByComma(List<String> dates) {
-        String[] datesSeparatedByCommas = null;
-        String datesCommaSeparated = String.join(",", dates);
-        datesSeparatedByCommas = datesCommaSeparated.split(",");
-        return this.dates = new LinkedHashSet(Arrays.asList(datesSeparatedByCommas));
-    }
-    
-    private Set<String> getDatesWithoutDaysOfWeek(Set<String> dates) {
+    private Set<String> getDatesWithoutDaysOfWeek(List<String> dates) {
         Set<String> datesWithoutDayOfWeek = dates.stream()
                 .map(date -> date.substring(0, 9).toLowerCase())
                 .collect(Collectors.toSet());

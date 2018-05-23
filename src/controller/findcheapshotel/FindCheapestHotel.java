@@ -17,10 +17,14 @@ public class FindCheapestHotel {
     private List<Hotel> hotelList = new ArrayList<>();
     private List<Quotation> quotations = new ArrayList<>();
 
-    public FindCheapestHotel(Map<String, Set<LocalDate>> mapOfClientsEndDates, List<Hotel> hotelList) {
+    public FindCheapestHotel(Map<String, Set<LocalDate>> mapOfClientsEndDates, List<Hotel> hotelList) {;
         this.mapOfClientsEndDates = mapOfClientsEndDates;
         this.hotelList = hotelList;
     }
+
+//    public FindCheapestHotel(Map.Entry<String, Set<LocalDate>> mp, List<Hotel> hotelList) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     
     private String getClient(){
         return mapOfClientsEndDates.entrySet()
@@ -59,15 +63,14 @@ public class FindCheapestHotel {
                 .get();
     }
     
-//    public String findCheapestHotel(){
-//        for(int i=0; i<hotelList.size(); i++){
-//            double total = getFullValueForPeriodRequested(hotelList.get(i));
-//            quotations.add(new Quotation(hotelList.get(i), total));
-//        }
-//        java.util.Optional<Quotation> quotation = quotations.stream()
-//                .sorted(Comparator.comparing(Quotation::getTotal).reversed());
-//                        
-//        
-//        return quotation.get().getHotel().getName();
-//    }
+    public List<Quotation> findCheapestHotel(){
+        for(int i=0; i<hotelList.size(); i++){
+            double total = getFullValueForPeriodRequested(hotelList.get(i));
+            quotations.add(new Quotation(hotelList.get(i), total));
+        }
+        return quotations.stream()
+                .sorted(Comparator.comparing(Quotation::getTotal))
+                .collect(Collectors.toList());
+
+    }
 }
