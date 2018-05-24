@@ -1,4 +1,4 @@
-package teste;
+package model.pricetable;
 
 public class PriceTable {
     private String clientType;

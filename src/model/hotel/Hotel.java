@@ -2,7 +2,7 @@ package model.hotel;
 
 import java.util.ArrayList;
 import java.util.List;
-import teste.PriceTable;
+import model.pricetable.PriceTable;
 
 public class Hotel {
   private String name;
