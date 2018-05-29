@@ -16,6 +16,7 @@ import model.pricetable.PriceTable;
 import model.quotation.Quotation;
 
 public class FindCheapestHotel {
+
     private String fileLine;
     private GetClient getClient;
     private GetDates getDates;
@@ -29,7 +30,22 @@ public class FindCheapestHotel {
         getClient = new GetClient();
         getDates = new GetDates();
     }
-    
+
+    public String findCheapestHotel() {
+        getQuotations().sort(Comparator.comparing(Quotation::getTotal)
+                .thenComparing(Comparator.comparing(Quotation::getClassificationHotel))
+        );
+        return quotations.get(0).getHotel().getName();
+    }
+
+    private List<Quotation> getQuotations() {
+        for (Hotel hotel : hotelList) {
+            double total = getFullValueForPeriodRequested(hotel);
+            quotations.add(new Quotation(hotel, total));
+        }
+        return quotations;
+    }
+
     private double getFullValueForPeriodRequested(Hotel hotel) {
         double full = 0;
         PriceTable price = getPriceTableByClient(hotel, getClient.returnClient(fileLine));
@@ -42,26 +58,11 @@ public class FindCheapestHotel {
         }
         return full;
     }
-    
+
     private PriceTable getPriceTableByClient(Hotel hotel, String client) {
         return hotel.getPriceTable().stream()
                 .filter(p -> p.getClientType().equalsIgnoreCase(client))
                 .findAny()
                 .get();
-    }
-    
-    private List<Quotation> getQuotations(){
-        for(Hotel hotel : hotelList){
-            double total = getFullValueForPeriodRequested(hotel);
-            quotations.add(new Quotation(hotel, total));           
-        }
-        return quotations;
-    }
-    
-    public String findCheapestHotel(){       
-        getQuotations().sort(Comparator.comparing(Quotation::getTotal)
-                            .thenComparing(Comparator.comparing(Quotation::getClassificationHotel))
-        );
-        return quotations.get(0).getHotel().getName();
     }
 }
