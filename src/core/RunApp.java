@@ -26,7 +26,7 @@ public class RunApp {
         
         for(String fileLine : validateFileLines.validateFileLinesAcrossByPattern()){
             FindCheapestHotel findCheapestHotel = new FindCheapestHotel(fileLine, listaHoteis);
-            findCheapestHotel.findCheapestHotel();
+            System.out.println(findCheapestHotel.findCheapestHotel());
         }
     }
 

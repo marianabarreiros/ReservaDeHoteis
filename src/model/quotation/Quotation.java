@@ -14,4 +14,6 @@ public class Quotation {
     public Hotel getHotel() {return hotel;}
     
     public double getTotal() {return total;}
+    
+    public double getClassificationHotel(){return hotel.getClassification();}
 }

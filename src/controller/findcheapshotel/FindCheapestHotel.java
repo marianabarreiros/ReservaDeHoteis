@@ -4,9 +4,11 @@ import controller.returnclient.GetClient;
 import controller.returndates.GetDates;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import model.hotel.Hotel;
@@ -19,7 +21,7 @@ public class FindCheapestHotel {
     private GetDates getDates;
     private Collection<LocalDate> dates = new LinkedHashSet<>();
     private Collection<Hotel> hotelList = new ArrayList<>();
-    private Collection<Quotation> quotations = new ArrayList<>();
+    private List<Quotation> quotations = new ArrayList<>();
 
     public FindCheapestHotel(String fileLine, Collection<Hotel> hotelList) {
         this.fileLine = fileLine;
@@ -48,13 +50,18 @@ public class FindCheapestHotel {
                 .get();
     }
     
-    public Collection<Quotation> findCheapestHotel(){
+    private List<Quotation> getQuotations(){
         for(Hotel hotel : hotelList){
             double total = getFullValueForPeriodRequested(hotel);
             quotations.add(new Quotation(hotel, total));           
         }
-        return quotations.stream()
-                .sorted(Comparator.comparing(Quotation::getTotal))
-                .collect(Collectors.toList());
+        return quotations;
+    }
+    
+    public String findCheapestHotel(){       
+        getQuotations().sort(Comparator.comparing(Quotation::getTotal)
+                            .thenComparing(Comparator.comparing(Quotation::getClassificationHotel))
+        );
+        return quotations.get(0).getHotel().getName();
     }
 }
