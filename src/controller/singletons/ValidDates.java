@@ -12,9 +12,11 @@ import java.util.stream.Collectors;
 
 public class ValidDates {
 
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMuuuu");
     private static ValidDates datesValidationInstance;
     private Set<String> dates;
     private Set<LocalDate> validatedDates;
+    private AtomicBoolean isValid = new AtomicBoolean(Boolean.TRUE);
 
     private ValidDates() {}
 
@@ -27,8 +29,6 @@ public class ValidDates {
 
     public Set<LocalDate> returnsListOfValidatedDates(List<String> dates) {
         validatedDates = new LinkedHashSet<>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMMuuuu");
-        AtomicBoolean isValid = new AtomicBoolean(Boolean.TRUE);
         this.dates = getDatesWithoutDaysOfWeek(dates);
         this.dates.forEach(date -> {
             try {

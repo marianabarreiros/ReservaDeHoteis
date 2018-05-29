@@ -20,9 +20,15 @@ import model.pricetable.PriceTable;
 public class RunApp {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
+        List<Hotel> listaHoteis = loadHotels();
         FileReading fileReading = FileReading.getInstance();
         ValidateFileLines validateFileLines = new ValidateFileLines(fileReading.getFilledLinesListInFile());
-        System.out.println(validateFileLines.validateFileLinesAcrossByPattern());     
+        validateFileLines.validateFileLinesAcrossByPattern(); 
+        
+        for(String fileLine : validateFileLines.validateFileLinesAcrossByPattern()){
+            FindCheapestHotel findCheapestHotel = new FindCheapestHotel(fileLine, listaHoteis);
+            findCheapestHotel.findCheapestHotel();
+        }
     }
 
     public static List<Hotel> loadHotels() {

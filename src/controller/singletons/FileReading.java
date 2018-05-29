@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -22,7 +23,7 @@ public class FileReading {
         return fileReadingInstance;
     }
     
-    public List<String> getFilledLinesListInFile() throws IOException, URISyntaxException {
+    public Collection<String> getFilledLinesListInFile() throws IOException, URISyntaxException {
         final String FILE = "file" + File.separator + "HotelReservation.txt";
         Path filePath = Paths.get(getClass().getClassLoader().getResource(FILE).toURI());
         Stream<String> filledLines = Files.lines(filePath, StandardCharsets.ISO_8859_1);
