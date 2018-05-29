@@ -24,6 +24,8 @@ public class FindCheapestHotel {
     public FindCheapestHotel(String fileLine, Collection<Hotel> hotelList) {
         this.fileLine = fileLine;
         this.hotelList = hotelList;
+        getClient = new GetClient();
+        getDates = new GetDates();
     }
     
     private double getFullValueForPeriodRequested(Hotel hotel) {
@@ -47,9 +49,9 @@ public class FindCheapestHotel {
     }
     
     public Collection<Quotation> findCheapestHotel(){
-        for(int i=0; i<hotelList.size(); i++){
-            double total = getFullValueForPeriodRequested(hotelList.iterator().next());
-            quotations.add(new Quotation(hotelList.iterator().next(), total));
+        for(Hotel hotel : hotelList){
+            double total = getFullValueForPeriodRequested(hotel);
+            quotations.add(new Quotation(hotel, total));           
         }
         return quotations.stream()
                 .sorted(Comparator.comparing(Quotation::getTotal))

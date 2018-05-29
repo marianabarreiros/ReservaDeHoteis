@@ -23,7 +23,6 @@ public class RunApp {
         List<Hotel> listaHoteis = loadHotels();
         FileReading fileReading = FileReading.getInstance();
         ValidateFileLines validateFileLines = new ValidateFileLines(fileReading.getFilledLinesListInFile());
-        validateFileLines.validateFileLinesAcrossByPattern(); 
         
         for(String fileLine : validateFileLines.validateFileLinesAcrossByPattern()){
             FindCheapestHotel findCheapestHotel = new FindCheapestHotel(fileLine, listaHoteis);
