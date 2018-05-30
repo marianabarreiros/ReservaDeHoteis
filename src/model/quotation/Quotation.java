@@ -3,6 +3,7 @@ package model.quotation;
 import model.hotel.Hotel;
 
 public class Quotation {
+
     private Hotel hotel;
     private double total;
 
@@ -11,9 +12,15 @@ public class Quotation {
         this.total = total;
     }
 
-    public Hotel getHotel() {return hotel;}
-    
-    public double getTotal() {return total;}
-    
-    public double getClassificationHotel(){return hotel.getClassification();}
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public double getClassificationHotel() {
+        return hotel.getClassification();
+    }
 }

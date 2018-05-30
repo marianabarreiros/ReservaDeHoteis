@@ -18,7 +18,8 @@ public class ValidDates {
     private Set<LocalDate> validatedDates;
     private AtomicBoolean isValid = new AtomicBoolean(Boolean.TRUE);
 
-    private ValidDates() {}
+    private ValidDates() {
+    }
 
     public static ValidDates getInstance() {
         if (datesValidationInstance == null) {
@@ -40,11 +41,11 @@ public class ValidDates {
         });
         return isValid.get() ? validatedDates : null;
     }
-    
+
     private Set<String> getDatesWithoutDaysOfWeek(List<String> dates) {
         Set<String> datesWithoutDayOfWeek = dates.stream()
                 .map(date -> date.substring(0, 9).toLowerCase())
                 .collect(Collectors.toSet());
-        return datesWithoutDayOfWeek;       
-    }   
+        return datesWithoutDayOfWeek;
+    }
 }

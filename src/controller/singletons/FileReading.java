@@ -13,16 +13,19 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class FileReading {
+
     private static FileReading fileReadingInstance;
 
-    private FileReading() {}  
-    
-    public static FileReading getInstance(){
-        if(fileReadingInstance == null)
-            fileReadingInstance =  new FileReading();
+    private FileReading() {
+    }
+
+    public static FileReading getInstance() {
+        if (fileReadingInstance == null) {
+            fileReadingInstance = new FileReading();
+        }
         return fileReadingInstance;
     }
-    
+
     public Collection<String> getFilledLinesListInFile() throws IOException, URISyntaxException {
         final String FILE = "file" + File.separator + "HotelReservation.txt";
         Path filePath = Paths.get(getClass().getClassLoader().getResource(FILE).toURI());
