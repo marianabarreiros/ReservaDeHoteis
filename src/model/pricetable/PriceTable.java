@@ -1,6 +1,7 @@
 package model.pricetable;
 
 public class PriceTable {
+
     private String clientType;
     private double weekdayPrice;
     private double weekendRate;
@@ -11,13 +12,23 @@ public class PriceTable {
         this.weekendRate = weekendRate;
     }
 
-    public String getClientType() {return clientType;}
+    public String getClientType() {
+        return clientType;
+    }
 
-    public double getWeekdayPrice() {return weekdayPrice;}
+    public double getWeekdayPrice() {
+        return weekdayPrice;
+    }
 
-    public double getWeekendRate() {return weekendRate;}
+    public double getWeekendRate() {
+        return weekendRate;
+    }
 
-    public void setWeekdayPrice(double weekdayPrice) {this.weekdayPrice = weekdayPrice;}
+    public void setWeekdayPrice(double weekdayPrice) {
+        this.weekdayPrice = weekdayPrice;
+    }
 
-    public void setWeekendRate(double weekendRate) {this.weekendRate = weekendRate;}  
+    public void setWeekendRate(double weekendRate) {
+        this.weekendRate = weekendRate;
+    }
 }

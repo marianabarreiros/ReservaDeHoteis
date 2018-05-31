@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -30,13 +31,22 @@ public class FindCheapestHotel {
         getClient = new GetClient();
         getDates = new GetDates();
     }
-
-    public String findCheapestHotel() {
-        getQuotations().sort(Comparator.comparing(Quotation::getTotal)
-                .thenComparing(Comparator.comparing(Quotation::getClassificationHotel))
-        );
+    
+    public String findCheapestHotel(){
+        getQuotations().sort(Comparator.comparingDouble(Quotation::getTotal).reversed().thenComparing(Quotation::getClassificationHotel).reversed());
         return quotations.get(0).getHotel().getName();
     }
+//    public String sortByTotalClassification() {
+//        Comparator<Quotation> q = Comparator.comparing(Quotation::getClassificationHotel);
+//        Collections.sort(sortByTotalValue(), q);
+//        return quotations.get(0).getHotel().getName();
+//    }
+//
+//    private List<Quotation> sortByTotalValue() {
+//        Comparator<Quotation> q = Comparator.comparing(Quotation::getTotal);
+//        Collections.sort(getQuotations(), q);
+//        return quotations;
+//    }
 
     private List<Quotation> getQuotations() {
         for (Hotel hotel : hotelList) {
