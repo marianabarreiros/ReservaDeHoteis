@@ -36,17 +36,6 @@ public class FindCheapestHotel {
         getQuotations().sort(Comparator.comparingDouble(Quotation::getTotal).reversed().thenComparing(Quotation::getClassificationHotel).reversed());
         return quotations.get(0).getHotel().getName();
     }
-//    public String sortByTotalClassification() {
-//        Comparator<Quotation> q = Comparator.comparing(Quotation::getClassificationHotel);
-//        Collections.sort(sortByTotalValue(), q);
-//        return quotations.get(0).getHotel().getName();
-//    }
-//
-//    private List<Quotation> sortByTotalValue() {
-//        Comparator<Quotation> q = Comparator.comparing(Quotation::getTotal);
-//        Collections.sort(getQuotations(), q);
-//        return quotations;
-//    }
 
     private List<Quotation> getQuotations() {
         for (Hotel hotel : hotelList) {

@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 public class ValidateFileLines {
 
     private final String REGEX = "((([a-zA-Z]+:)?([0-9]{2})([a-zA-Z]{3})([0-9]{4})\\(([a-z]{3,4})\\)[,]?){3,})\\n?"; // https://regexr.com/
+    private final Pattern pattern = Pattern.compile(REGEX);
+    private Matcher matcher;
     private Collection<String> listOfValidatedFileLines;
     private Collection<String> listOfFileLines;
 
@@ -18,8 +20,6 @@ public class ValidateFileLines {
     }
 
     public Collection<String> validateFileLinesAcrossByPattern() {
-        Pattern pattern = Pattern.compile(REGEX);
-        Matcher matcher;
         getListOfFileLinesWithoutSpaces(listOfFileLines).forEach(s -> {
             if (pattern.matcher(s).matches()) {
                 listOfValidatedFileLines.add(s);
