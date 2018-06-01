@@ -24,7 +24,7 @@ public class UnmodifiableMapOfClientsEndDates {
         String[] dates;
         int endIndex = 0;
         for(String fileLine : listOfFileLines){
-            endIndex = fileLine.indexOf(":");
+            endIndex = fileLine.indexOf(":");     
             nameClient = fileLine.substring(0, endIndex);
             dates = fileLine.substring(endIndex + 1).split(",");
             List<String> datesAsList = Arrays.asList(dates);
